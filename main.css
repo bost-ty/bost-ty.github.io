@@ -1,0 +1,26 @@
+body {
+  font-family: "Fira Code Regular", Menlo, "Courier New", Courier, monospace;
+  color: lightgray;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  max-width: 70ch;
+  margin: 0 2rem;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+main {
+  padding: 2rem;
+  background-color: darkslategrey;
+  min-height: 100vh;
+}
+
+.heading {
+  margin: 2rem 0 4rem 0;
+}
