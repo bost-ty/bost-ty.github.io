@@ -6,6 +6,8 @@
 *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
 */
 
+console.info("Page loaded")
+
 const authBtn = document.getElementById("authBtn")
 
 document.addEventListener("onclick", authBtn, e => {
