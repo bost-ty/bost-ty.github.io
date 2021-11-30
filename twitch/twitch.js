@@ -10,8 +10,7 @@ console.info("Page loaded");
 
 const authBtn = document.getElementById("authBtn");
 
-function onAuthSubmit(e) {
-  console.log("On Auth Submit");
-  console.log(e);
-  console.log("End Auth Submit");
+function onAuthSubmit() {
+  console.log("authSubmit");
+  window.location.replace("https://bost-ty.github.io");
 }
