@@ -10,6 +10,8 @@ console.info("Page loaded");
 
 const authBtn = document.getElementById("authBtn");
 
-document.addEventListener("click", authBtn, (e) => {
-  console.log(e);
-});
+function onAuthSubmit(e) {
+    console.log("On Auth Submit")
+    console.log(e)
+    console.log("End Auth Submit")
+}
