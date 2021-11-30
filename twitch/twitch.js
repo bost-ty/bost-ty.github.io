@@ -10,6 +10,6 @@ console.info("Page loaded")
 
 const authBtn = document.getElementById("authBtn")
 
-document.addEventListener("onclick", authBtn, e => {
+document.addEventListener("click", authBtn, e => {
     console.log(e)
 })
