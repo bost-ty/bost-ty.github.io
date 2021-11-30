@@ -10,8 +10,10 @@ console.info("Page loaded");
 
 const authBtn = document.getElementById("authBtn");
 
-function onAuthSubmit(e) {
-    console.log("On Auth Submit")
-    console.log(e)
-    console.log("End Auth Submit")
-}
+window.onload = function () {
+  function onAuthSubmit(e) {
+    console.log("On Auth Submit");
+    console.log(e);
+    console.log("End Auth Submit");
+  }
+};
