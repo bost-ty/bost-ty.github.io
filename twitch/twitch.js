@@ -5,3 +5,9 @@
 *    https://github.com/twitchdev/authentication-node-sample/blob/main/index.js
 *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
 */
+
+const authBtn = document.getElementById("authBtn")
+
+document.addEventListener("onclick", authBtn, e => {
+    console.log(e)
+})
