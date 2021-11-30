@@ -10,15 +10,15 @@ p {
   margin: 0 2rem;
 }
 
-.center {
-  display: grid;
-  place-items: center;
-}
-
 main {
   padding: 2rem;
   background-color: #333;
   min-height: 100vh;
+}
+
+.center {
+  display: grid;
+  place-items: center;
 }
 
 .heading {
