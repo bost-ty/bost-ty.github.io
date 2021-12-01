@@ -10,12 +10,12 @@
  * Global variables *
  ****************** */
 
+const MAIN = document.getElementById("main");
+
 const div = document.createElement("div");
 const p = document.createElement("p");
 
-const MAIN = document.getElementById("main");
-
-const CLIENT_ID = "";
+const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
 
@@ -54,6 +54,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 /* *************
  * Fetch calls *
  ************* */
+
 // "Enter Twithc OAuth Implicit flow"
 async function onAuthSubmit() {
   return await fetch(TOKEN_URL)
@@ -99,7 +100,7 @@ function getAuthScope(parsedHash) {
   }
 }
 
-/* NOT YET ORGANIZED */
+/* --- NOT YET ORGANIZED --- */
 
 // Define variables for ease of use, clarity of future requests
 const twitchBaseURL = "https://api.twitch.tv/helix";
@@ -129,13 +130,15 @@ const twitchAuthPOSTRequest = new Request(
   twitchAuthPOSTInit
 );
 
+/* --- NOTES, REFERENCE --- */
+
 /* This is by default a GET after a non-modified call to a URL
 let response = await fetch(url);
 let data = await response.json();
 return data;
 */
 
-/* ----------
+/* ---------- 
 
 // Example POST method implementation:
 async function postData(url = "", data = {}) {
@@ -160,11 +163,8 @@ postData("https://example.com/answer", { answer: 42 }).then((data) => {
   console.log(data); // JSON data parsed by `data.json()` call
 });
 
----------- */
 
-/* 
-
-// These are set for the GitHub Pages Example
+These are set for the GitHub Pages Example
         // Substitute as needed
         var client_id = 'hozgh446gdilj5knsrsxxz8tahr3koz';
         var redirect = 'https://barrycarlyon.github.io/twitch_misc/authentication/implicit_auth/';
@@ -218,4 +218,5 @@ postData("https://example.com/answer", { answer: 42 }).then((data) => {
                 document.getElementById('access_token').textContent = parsedParams.get('error') + ' - ' + parsedParams.get('error_description');
             }
         }
-*/
+
+--- */
