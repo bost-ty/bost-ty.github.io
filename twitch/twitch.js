@@ -15,7 +15,6 @@ const p = document.createElement("p");
 const CLIENT_ID = "";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
-console.log(REQUEST_SCOPE);
 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
@@ -43,9 +42,9 @@ if (AUTH_SCOPE) {
   ).innerText = `Auth scope: ${AUTH_SCOPE}`;
 }
 
-/* **************
+/* *************
  * Fetch calls *
- ************** */
+ ************* */
 // "Enter Twithc OAuth Implicit flow"
 async function onAuthSubmit() {
   return await fetch(TOKEN_URL)
@@ -69,9 +68,9 @@ async function getTwitchChannel(user) {
   return data;
 }
 
-/* ******************
+/* ********************
  * Utilities, getters *
- ****************** */
+ ******************** */
 
 // "Return auth token from parsed URI hash"
 function getAuthToken(parsedHash) {
