@@ -6,6 +6,9 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
+/* FAKE SECRETS */
+const AUTH_TOKEN = 'ABCD1234'
+
 const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
