@@ -15,6 +15,8 @@ const MAIN = document.getElementById("main");
 const div = document.createElement("div");
 const p = document.createElement("p");
 
+const TEXT_TO_APPEND = "placeholder text - placeholder text {} !@#$%^&*()-=/\\";
+
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
@@ -46,7 +48,7 @@ if (AUTH_SCOPE) {
 }
 
 if (AUTH_TOKEN && AUTH_SCOPE) {
-  p.append("Paragraph text");
+  p.append(TEXT_TO_APPEND);
   div.append(p);
   MAIN.append(div);
 }
