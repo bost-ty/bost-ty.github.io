@@ -6,33 +6,24 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-window.onload = () => {
-  if (document.location.hash) {
-    let loadedAuthCode = document.location.hash.substr(1);
-    console.log(loadedAuthCode);
-    const AUTH_TOKEN = loadedAuthCode;
-  } else {
-    console.log("No document.location.hash");
-  }
-};
+if (document.location.hash) {
+  let loadedAuthCode = document.location.hash.substr(1);
+  console.log(loadedAuthCode);
+  const AUTH_TOKEN = loadedAuthCode;
+  return AUTH_TOKEN;
+} else {
+  console.log("No document.location.hash");
+}
 
 const authBtn = document.getElementById("authBtn");
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
+const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
 async function onAuthSubmit() {
-  // Do your thing(s)
-  //   fetchAsync(
-  //     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
-  //   ).then((data) => console.table(data.data.thumbnail));
-  await fetchAsync(
-    `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`
-  );
-  if (!response.ok) {
-  }
-  return;
-  // window.location.href = "https://bost-ty.github.io";
+  return await fetch(URL, {});
 }
+
 /** Example POST method implementation:
  *   async function postData(url = '', data = {}) {
  *     // Default options are marked with *
