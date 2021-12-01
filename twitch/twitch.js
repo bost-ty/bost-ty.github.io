@@ -15,7 +15,7 @@ function onAuthSubmit() {
   // Do things!
   let data = fetchAsync('https://bost-ty.github.io')
   alert(data)
-  window.location.href = "https://bost-ty.github.io";
+  if (data) window.location.href = "https://bost-ty.github.io";
 }
 
 /** Example POST method implementation:
