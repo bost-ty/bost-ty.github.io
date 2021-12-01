@@ -12,6 +12,7 @@ if (document.location.hash) {
   const AUTH_TOKEN = loadedAuthCode;
 } else {
   console.log("No document.location.hash");
+  const AUTH_TOKEN = null;
 }
 
 const authBtn = document.getElementById("authBtn");
