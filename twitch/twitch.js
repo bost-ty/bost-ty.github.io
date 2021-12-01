@@ -8,8 +8,7 @@
 
 window.onload = () => {
   if (document.location.hash) {
-    let lochash = document.location.hash.substr(1);
-    loadedAuthCode = lochash;
+    let loadedAuthCode = document.location.hash.substr(1);
     console.log(loadedAuthCode);
     return loadedAuthCode;
   } else {
