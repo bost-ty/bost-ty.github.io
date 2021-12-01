@@ -36,15 +36,15 @@ const AUTH_SCOPE = getAuthScope(parsedHash);
 const p = document.createElement("p");
 
 if (AUTH_TOKEN) {
-  document
-    .getElementById("authTokenDiv")
-    .append((p.innerText = `Auth token: ${AUTH_TOKEN}`));
+  document.getElementById(
+    "authTokenText"
+  ).innerText = `Auth token: ${AUTH_TOKEN}`;
 }
 
 if (AUTH_SCOPE) {
-  document
-    .getElementById("authScopeDiv")
-    .append((p.innerText = `Auth scope: ${AUTH_SCOPE}`));
+  document.getElementById(
+    "authScopeText"
+  ).innerText = `Auth scope: ${AUTH_SCOPE}`;
 }
 
 const authBtn = document.getElementById("authBtn");
