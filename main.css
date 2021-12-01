@@ -33,4 +33,5 @@ main {
 #authBtn {
   margin-top: 10vh;
   padding: 2rem 4rem;
+  border-radius: .5rem;
 }
