@@ -33,6 +33,8 @@ function getAuthScope(parsedHash) {
 
 const AUTH_SCOPE = getAuthScope(parsedHash);
 
+console.log(AUTH_SCOPE);
+
 if (AUTH_TOKEN) {
   document.getElementById(
     "authTokenDiv"
