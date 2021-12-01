@@ -15,18 +15,13 @@ window.onload = () => {
   }
 };
 
-let AUTH_TOKEN = "";
+// let AUTH_TOKEN = "";
 const authBtn = document.getElementById("authBtn");
-const clientInput = document.getElementById("CLIENT_ID");
-let CLIENT_ID = "";
-if (clientInput) {
-  CLIENT_ID = clientInput.nodeValue;
-}
+const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 function onAuthSubmit() {
-  // Do things!
-  CLIENT_ID = clientInput.value;
+  // Do your thing(s)
   //   fetchAsync(
   //     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
   //   ).then((data) => console.table(data.data.thumbnail));
