@@ -34,7 +34,7 @@ const twitchAuthPOSTHeaders = new Headers({
 let dataPOST = { data1: "abcd1234" }; // whatever it is
 const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable... not sure about this one.
 const twitchAuthPOSTInit = {
-  method: "POST", // default: GET
+  method: "POST",
   headers: twitchAuthPOSTHeaders,
   body: twitchAuthPOSTBody,
 };
