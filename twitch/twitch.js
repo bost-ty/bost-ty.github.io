@@ -16,7 +16,10 @@ const AUTH_TOKEN = () => {
   } else console.log("No document hash");
 };
 
+console.log(AUTH_TOKEN);
+
 const authBtn = document.getElementById("authBtn");
+const authTokenDiv = document.getElementById("authTokenDiv");
 const CLIENT_ID = "";
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
