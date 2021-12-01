@@ -6,8 +6,6 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-console.info("Page loaded");
-
 const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
@@ -15,10 +13,11 @@ function onAuthSubmit() {
   window.location.href = "https://bost-ty.github.io";
 }
 
-
 /* ES7 async GET */
-async function fetchAsync (url) {
-    let response = await fetch(url);
-    let data = await response.json();
-    return data;
-  }
+async function fetchAsync(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+
+const baseURL = "https://api.twitch.tv/helix"
