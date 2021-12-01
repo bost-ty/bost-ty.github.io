@@ -26,7 +26,7 @@ async function onAuthSubmit() {
 // Define variables for ease of use, clarity of future requests
 const baseURL = "https://api.twitch.tv/helix";
 const twitchAuthPOSTUrl = `${baseURL}/some/path`;
-const twitchAuthPOSTHeaders = new Headers({
+const twitchAuthHeaders = new Headers({
   "Authorization-Bearer": AUTH_TOKEN,
   "Client-Id": CLIENT_ID,
 });
@@ -35,24 +35,26 @@ let dataPOST = { data1: "abcd1234" }; // whatever it is
 const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable... not sure about this one.
 const twitchAuthPOSTInit = {
   method: "POST",
-  headers: twitchAuthPOSTHeaders,
+  headers: twitchAuthHeaders,
   body: twitchAuthPOSTBody,
 };
+
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
   twitchAuthPOSTUrl,
   twitchAuthPOSTInit
 );
 
-// This is by default a GET after a non-modified call to a URL
-async function fetchAsync(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
+/* This is by default a GET after a non-modified call to a URL
+let response = await fetch(url);
+let data = await response.json();
+return data;
+*/
 
 // "Get Twitch Channel"
 async function getTwitchChannel(user) {
+  let response = await fetch(URL);
+  let data = await response.json();
   return;
 }
 
