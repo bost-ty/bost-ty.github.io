@@ -20,7 +20,9 @@ const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
 async function onAuthSubmit() {
-  return await fetch(URL, {});
+  return await fetch(URL)
+    .then((res) => console.log(res.json()))
+    .catch((err) => console.error(err));
 }
 
 // Define variables for ease of use, clarity of future requests
