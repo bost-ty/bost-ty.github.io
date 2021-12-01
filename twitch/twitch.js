@@ -28,17 +28,17 @@ const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&
 
 async function onAuthSubmit() {
   return await fetch(TOKEN_URL)
-    .then((res) => console.log(res.json()))
+    .then((res) => res.json())
     .catch((err) => console.error(err));
 }
 
 // Define variables for ease of use, clarity of future requests
 const twitchBaseURL = "https://api.twitch.tv/helix";
 const twitchAuthURL = `${twitchBaseURL}/some/path`;
-const twitchAuthHeaders = new Headers({
+const twitchAuthHeaders = {
   Authorization: `Bearer: ${AUTH_TOKEN}`,
   "Client-Id": CLIENT_ID,
-});
+};
 
 let dataPOST = { data1: "abcd1234" }; // whatever it is
 const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable... not sure about this one.
