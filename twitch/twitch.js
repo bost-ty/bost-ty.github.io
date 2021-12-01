@@ -14,3 +14,11 @@ function onAuthSubmit() {
   console.log("authSubmit");
   window.location.href("https://bost-ty.github.io");
 }
+
+
+/* ES7 async GET */
+async function fetchAsync (url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+  }
