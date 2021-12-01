@@ -26,6 +26,7 @@ const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 function onAuthSubmit() {
   // Do things!
+  CLIENT_ID = clientInput.value;
   //   fetchAsync(
   //     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
   //   ).then((data) => console.table(data.data.thumbnail));
