@@ -6,46 +6,30 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-const CLIENT_ID = "";
-
-const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
-// curl -X GET 'https://id.twitch.tv/oauth2/validate' \
-// -H 'Authorization: Bearer <access token goes here>'
-
-async function validateTwitchRequest() {
-  await fetch(twitchValidationEndpoint, {
-    headers: { Authorization: `Bearer: ${AUTH_TOKEN}` },
-  })
-    .then((res) => res.ok)
-    .catch((err) => console.error(err));
-}
-
-const hashCheck = document.location.hash && document.location.hash != "";
-
-let parsedHash = hashCheck
-  ? new URLSearchParams(document.location.hash.substr(1))
-  : null;
-
-function getAuthToken(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("access_token")) {
-      return parsedHash.get("access_token");
-    } else return null;
-  }
-}
-const AUTH_TOKEN = getAuthToken(parsedHash);
-
-function getAuthScope(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("scope")) {
-      return decodeURIComponent(parsedHash.get("scope"));
-    } else return null;
-  }
-}
-
-const AUTH_SCOPE = getAuthScope(parsedHash);
+/* ******************
+ * Global variables *
+ ****************** */
 
 const p = document.createElement("p");
+
+const CLIENT_ID = "";
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
+const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
+console.log(REQUEST_SCOPE);
+
+const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
+const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
+
+const hashCheck = document.location.hash && document.location.hash != "";
+const parsedHash = hashCheck
+  ? new URLSearchParams(document.location.hash.substr(1))
+  : null;
+const AUTH_TOKEN = getAuthToken(parsedHash);
+const AUTH_SCOPE = getAuthScope(parsedHash);
+
+/* *****************
+ * Text population *
+ ***************** */
 
 if (AUTH_TOKEN) {
   document.getElementById(
@@ -59,14 +43,49 @@ if (AUTH_SCOPE) {
   ).innerText = `Auth scope: ${AUTH_SCOPE}`;
 }
 
-const authBtn = document.getElementById("authBtn");
-const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
-
+/* **************
+ * Fetch calls *
+ ************** */
+// "Enter Twithc OAuth Implicit flow"
 async function onAuthSubmit() {
   return await fetch(TOKEN_URL)
     .then((res) => res.json())
-    .catch((err) => console.error(err));
+    .catch((err) => console.log("Error: " + err));
+}
+
+// "Validate OAuth code (before each request)"
+async function validateTwitchRequest() {
+  return await fetch(twitchValidationEndpoint, {
+    headers: { Authorization: `Bearer: ${AUTH_TOKEN}` },
+  })
+    .then((res) => res.ok)
+    .catch((err) => console.log("Error: " + err));
+}
+
+// "Get Twitch Channel"
+async function getTwitchChannel(user) {
+  let response = await fetch(URL);
+  let data = await response.json();
+  return data;
+}
+
+/* ******************
+ * Utilities, getters *
+ ****************** */
+function getAuthToken(parsedHash) {
+  if (parsedHash) {
+    if (parsedHash.get("access_token")) {
+      return parsedHash.get("access_token");
+    } else return null;
+  }
+}
+
+function getAuthScope(parsedHash) {
+  if (parsedHash) {
+    if (parsedHash.get("scope")) {
+      return decodeURIComponent(parsedHash.get("scope"));
+    } else return null;
+  }
 }
 
 // Define variables for ease of use, clarity of future requests
@@ -102,13 +121,6 @@ let response = await fetch(url);
 let data = await response.json();
 return data;
 */
-
-// "Get Twitch Channel"
-async function getTwitchChannel(user) {
-  let response = await fetch(URL);
-  let data = await response.json();
-  return;
-}
 
 /* ----------
 
