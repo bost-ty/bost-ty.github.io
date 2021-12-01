@@ -15,9 +15,11 @@ if (document.location.hash && document.location.hash != "") {
 }
 
 function defineAuthToken() {
-  if (parsedHash.get("access_token")) {
-    return parsedHash.get("access_token");
-  } else return null;
+  if (parsedHash) {
+    if (parsedHash.get("access_token")) {
+      return parsedHash.get("access_token");
+    } else return null;
+  }
 }
 const AUTH_TOKEN = defineAuthToken();
 
