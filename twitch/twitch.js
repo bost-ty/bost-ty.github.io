@@ -10,6 +10,7 @@ window.onload = () => {
   if (document.location.hash) {
     let lochash = document.location.hash.substr(1);
     loadedAuthCode = lochash.strip();
+    console.log(loadedAuthCode);
     return loadedAuthCode;
   } else {
     console.log("No document.location.hash");
