@@ -38,7 +38,7 @@ console.log(AUTH_SCOPE);
 if (AUTH_TOKEN) {
   document
     .getElementById("authTokenDiv")
-    .appendChild(
+    .append(
       (document.createElement("p").innerText = `Auth token: ${AUTH_TOKEN}`)
     );
 }
