@@ -17,7 +17,7 @@ function defineAuthToken() {
 
 const AUTH_TOKEN = defineAuthToken();
 
-console.log(AUTH_TOKEN);
+if (AUTH_TOKEN) console.log(AUTH_TOKEN);
 
 const authBtn = document.getElementById("authBtn");
 const authTokenDiv = document.getElementById("authTokenDiv");
