@@ -27,6 +27,6 @@ main {
 
 #authBtn {
   font-size: 120%;
-  margin-top: 8rem;
-  padding: 1rem;
+  margin-top: 20vh;
+  padding-inline: 2rem;
 }
