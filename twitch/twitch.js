@@ -16,8 +16,9 @@ function checkOnLoad() {
 
 window.onload = checkOnLoad();
 
-/* FAKE SECRETS */
+/* Constants */
 const CLIENT_ID = docuement.getElementById("clientId").value;
+
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 const authBtn = document.getElementById("authBtn");
