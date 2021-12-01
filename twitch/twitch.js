@@ -8,13 +8,11 @@
 
 const CLIENT_ID = "";
 
-function parseHash() {
-  if (document.location.hash && document.location.hash != "") {
-    return new URLSearchParams(document.location.hash.substr(1));
-  }
+if (document.location.hash && document.location.hash != "") {
+  const parsedHash = new URLSearchParams(document.location.hash.substr(1));
+} else {
+  const parsedHash = null;
 }
-
-const parsedHash = parseHash();
 
 function defineAuthToken() {
   if (parsedHash.get("access_token")) {
