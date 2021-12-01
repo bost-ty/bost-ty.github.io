@@ -17,7 +17,7 @@ function checkOnLoad() {
 window.onload = checkOnLoad();
 
 /* Constants */
-const CLIENT_ID = docuement.getElementById("clientId").value;
+const CLIENT_ID = document.getElementById("clientId").value;
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
