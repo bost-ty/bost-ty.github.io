@@ -72,6 +72,8 @@ async function getTwitchChannel(user) {
 /* ******************
  * Utilities, getters *
  ****************** */
+
+// "Return auth token from parsed URI hash"
 function getAuthToken(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("access_token")) {
@@ -80,6 +82,7 @@ function getAuthToken(parsedHash) {
   }
 }
 
+// "Return auth scope(s) from parsed URI hash"
 function getAuthScope(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("scope")) {
@@ -87,6 +90,8 @@ function getAuthScope(parsedHash) {
     } else return null;
   }
 }
+
+/* NOT YET ORGANIZED */
 
 // Define variables for ease of use, clarity of future requests
 const twitchBaseURL = "https://api.twitch.tv/helix";
