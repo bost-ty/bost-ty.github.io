@@ -53,7 +53,7 @@ const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable...
 const twitchAuthPOSTInit = {
   method: "POST", // default: GET
   headers: twitchAuthPOSTHeaders,
-  body: twitchAuthPostBody,
+  body: twitchAuthPOSTBody,
 };
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
