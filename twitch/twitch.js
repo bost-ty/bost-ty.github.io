@@ -7,15 +7,15 @@
  */
 
 /* FAKE SECRETS */
-const AUTH_TOKEN = 'ABCD1234'
+const AUTH_TOKEN = "ABCD1234";
 
 const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
   // Do things!
-  let data = fetchAsync('https://bost-ty.github.io')
-  alert(data)
-  if (data) window.location.href = "https://bost-ty.github.io";
+  fetchAsync("https://bost-ty.github.io").then((data) => console.log(data));
+
+  // window.location.href = "https://bost-ty.github.io";
 }
 
 /** Example POST method implementation:
@@ -65,7 +65,7 @@ const twitchAuthPOSTRequest = new Request(
 
 // This is by default a GET after a non-modified call to a URL
 async function fetchAsync(url) {
-    let response = await fetch(url);
-    let data = await response.json();
-    return data;
-  }
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
