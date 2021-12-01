@@ -57,7 +57,10 @@ const twitchAuthPOSTInit = {
 };
 
 // Put it all together...
-const twitchAuthPOSTRequest = [twitchAuthURL, twitchAuthPOSTInit];
+const twitchAuthPOSTRequest = new Request(
+  `${twitchBaseURL}/some/query`,
+  twitchAuthPostInit
+);
 
 /* This is by default a GET after a non-modified call to a URL
 let response = await fetch(url);
