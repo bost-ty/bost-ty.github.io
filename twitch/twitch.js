@@ -11,6 +11,9 @@ const CLIENT_ID = "";
 const AUTH_TOKEN = document.location.hash
   ? document.location.hash.substr(1)
   : null;
+
+console.log(AUTH_TOKEN);
+
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
