@@ -12,5 +12,5 @@ const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
   console.log("authSubmit");
-  window.location.replace("https://bost-ty.github.io");
+  window.location.href("https://bost-ty.github.io");
 }
