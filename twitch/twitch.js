@@ -6,7 +6,7 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 console.log(1, CLIENT_ID)
-const CLIENT_ID = document.getElementById("clientId").value.toString;
+var CLIENT_ID = document.getElementById("CLIENT_ID").value;
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 window.onload = () => {
