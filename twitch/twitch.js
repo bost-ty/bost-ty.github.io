@@ -19,9 +19,7 @@ const CLIENT_ID = "";
 const AUTH_TOKEN = defineAuthToken();
 
 const authBtn = document.getElementById("authBtn");
-document
-  .getElementById("authTokenDiv")
-  .insertAdjacentText(`Auth token: ${AUTH_TOKEN}`);
+document.getElementById("authTokenDiv").innerText = `Auth token: ${AUTH_TOKEN}`;
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
