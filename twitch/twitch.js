@@ -12,7 +12,9 @@ const AUTH_TOKEN = 'ABCD1234'
 const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
-  console.log("authSubmit");
+  // Do things!
+  let data = fetchAsync('https://bost-ty.github.io')
+  alert(data)
   window.location.href = "https://bost-ty.github.io";
 }
 
