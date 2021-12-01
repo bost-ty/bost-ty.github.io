@@ -6,17 +6,11 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-if (document.location.hash) {
-  let loadedAuthCode = document.location.hash.substr(1);
-  console.log(loadedAuthCode);
-  const AUTH_TOKEN = loadedAuthCode;
-} else {
-  console.log("No document.location.hash");
-  const AUTH_TOKEN = null;
-}
-
 const authBtn = document.getElementById("authBtn");
 const CLIENT_ID = "";
+const AUTH_TOKEN = document.location.hash
+  ? document.location.hash.substr(1)
+  : null;
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
