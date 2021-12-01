@@ -58,7 +58,7 @@ const twitchAuthPOSTInit = {
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
   twitchAuthPOSTUrl,
-  new twitchAuthPostInit()
+  twitchAuthPOSTInit
 );
 
 // This is by default a GET after a non-modified call to a URL
