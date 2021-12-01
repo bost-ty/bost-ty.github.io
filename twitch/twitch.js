@@ -8,13 +8,13 @@
 
 const CLIENT_ID = "";
 
-if (document.location.hash && document.location.hash != "") {
-  const parsedHash = new URLSearchParams(document.location.hash.substr(1));
-} else {
-  const parsedHash = null;
-}
+let hashCheck = document.location.hash && document.location.hash != "";
 
-function getAuthToken() {
+const parsedHash = hashCheck
+  ? new URLSearchParams(document.location.hash.substr(1))
+  : null;
+
+function getAuthToken(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("access_token")) {
       return parsedHash.get("access_token");
@@ -23,7 +23,7 @@ function getAuthToken() {
 }
 const AUTH_TOKEN = getAuthToken();
 
-function getAuthScope() {
+function getAuthScope(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("scope")) {
       return parsedHash.get("scope");
