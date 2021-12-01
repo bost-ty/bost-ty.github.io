@@ -9,7 +9,7 @@
 window.onload = () => {
   if (document.location.hash) {
     let lochash = document.location.hash.substr(1);
-    loadedAuthCode = lochash.strip();
+    loadedAuthCode = lochash;
     console.log(loadedAuthCode);
     return loadedAuthCode;
   } else {
