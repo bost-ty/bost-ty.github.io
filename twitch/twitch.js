@@ -13,7 +13,7 @@ function parseHash() {
     // if (parsedHash.get("access_token")) {
     //   return parsedHash.get("access_token");
     // } else return null;
-  } else throw new Error("No hash to parse");
+  } else console.error("No hash to parse");
 }
 
 function defineAuthToken() {
