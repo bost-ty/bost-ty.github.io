@@ -18,8 +18,8 @@ function defineAuthToken() {
 const AUTH_TOKEN = defineAuthToken();
 
 const authBtn = document.getElementById("authBtn");
-const authTokenDiv = document.getElementById("authTokenDiv");
-authTokenDiv.textContent = "Auth token: " + AUTH_TOKEN;
+document.getElementById("authTokenDiv").textContent =
+  "Auth token: " + AUTH_TOKEN;
 const CLIENT_ID = "";
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
