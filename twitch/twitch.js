@@ -7,7 +7,10 @@
  */
 
 /* FAKE SECRETS */
+
 const AUTH_TOKEN = "ABCD1234";
+const CLIENT_ID = "123456";
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 const authBtn = document.getElementById("authBtn");
 
@@ -16,7 +19,9 @@ function onAuthSubmit() {
   fetchAsync(
     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
   ).then((data) => console.table(data.data.thumbnail));
-  fetchAsync();
+  fetchAsync(
+    `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`
+  );
 
   // window.location.href = "https://bost-ty.github.io";
 }
