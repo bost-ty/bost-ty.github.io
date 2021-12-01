@@ -10,7 +10,10 @@
  * Global variables *
  ****************** */
 
+const div = document.createElement("div");
 const p = document.createElement("p");
+
+const MAIN = document.getElementById("main");
 
 const CLIENT_ID = "";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
@@ -40,6 +43,13 @@ if (AUTH_SCOPE) {
   document.getElementById(
     "authScopeText"
   ).innerText = `Auth scope: ${AUTH_SCOPE}`;
+}
+
+if (AUTH_TOKEN && AUTH_SCOPE) {
+  p.append("Paragraph text");
+  p.classList.add("center");
+  div.append(p);
+  MAIN.append(div);
 }
 
 /* *************

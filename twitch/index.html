@@ -9,8 +9,8 @@
     <title>Twitch Authentication</title>
   </head>
   <body>
-    <main>
-      <div class="heading center">
+    <main id="main" class="center">
+      <div class="heading">
         <h1>Twitch Authentication</h1>
         <p>
           Click the button below to authorize access to your Twitch channel:
@@ -19,7 +19,7 @@
       <div class="center">
         <button id="authBtn" onclick="onAuthSubmit()">Authorize</button>
       </div>
-      <div class="heading center">
+      <div>
         <p id="authTokenText"></p>
         <p id="authScopeText"></p>
       </div>
