@@ -15,17 +15,17 @@ const AUTH_TOKEN = document.location.hash
 if (AUTH_TOKEN) console.log(AUTH_TOKEN);
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
+const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
 async function onAuthSubmit() {
-  return await fetch(URL)
+  return await fetch(TOKEN_URL)
     .then((res) => console.log(res.json()))
     .catch((err) => console.error(err));
 }
 
 // Define variables for ease of use, clarity of future requests
-const baseURL = "https://api.twitch.tv/helix";
-const twitchAuthPOSTUrl = `${baseURL}/some/path`;
+const twitchBaseURL = "https://api.twitch.tv/helix";
+const twitchAuthURL = `${twitchBaseURL}/some/path`;
 const twitchAuthHeaders = new Headers({
   "Authorization-Bearer": AUTH_TOKEN,
   "Client-Id": CLIENT_ID,
@@ -40,10 +40,7 @@ const twitchAuthPOSTInit = {
 };
 
 // Put it all together...
-const twitchAuthPOSTRequest = new Request(
-  twitchAuthPOSTUrl,
-  twitchAuthPOSTInit
-);
+const twitchAuthPOSTRequest = new Request(twitchAuthURL, twitchAuthPOSTInit);
 
 /* This is by default a GET after a non-modified call to a URL
 let response = await fetch(url);
