@@ -10,7 +10,7 @@ const CLIENT_ID = "";
 
 const hashCheck = document.location.hash && document.location.hash != "";
 
-const parsedHash = hashCheck
+let parsedHash = hashCheck
   ? new URLSearchParams(document.location.hash.substr(1))
   : null;
 
@@ -36,9 +36,11 @@ const AUTH_SCOPE = getAuthScope(parsedHash);
 console.log(AUTH_SCOPE);
 
 if (AUTH_TOKEN) {
-  document.getElementById(
-    "authTokenDiv"
-  ).innerText = `Auth token: ${AUTH_TOKEN}`;
+  document
+    .getElementById("authTokenDiv")
+    .appendChild(
+      (document.createElement("p").innerText = `Auth token: ${AUTH_TOKEN}`)
+    );
 }
 
 const authBtn = document.getElementById("authBtn");
