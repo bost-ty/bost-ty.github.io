@@ -6,9 +6,6 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-const CLIENT_ID = document.getElementById("CLIENT_ID");
-const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-
 window.onload = () => {
   if (document.location.hash) {
     console.log(document.location.hash);
@@ -18,6 +15,13 @@ window.onload = () => {
 };
 
 const authBtn = document.getElementById("authBtn");
+const clientInput = document.getElementById("CLIENT_ID");
+let CLIENT_ID = '';
+if (clientInput) {
+  CLIENT_ID = clientInput.nodeValue;
+}
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
+
 
 function onAuthSubmit() {
   // Do things!
