@@ -10,6 +10,8 @@ function defineAuthToken() {
   if (document.location.hash && document.location.hash != "") {
     let parsedHash = new URLSearchParams(document.location.hash.substr(1));
     if (parsedHash.get("access_token")) {
+      document.getElementById("authTokenDiv").textContent =
+        "Auth token: " + parsedHash.get("access_token");
       return parsedHash.get("access_token");
     } else return null;
   } else console.log("No document hash");
@@ -18,8 +20,6 @@ function defineAuthToken() {
 const AUTH_TOKEN = defineAuthToken();
 
 const authBtn = document.getElementById("authBtn");
-document.getElementById("authTokenDiv").textContent =
-  "Auth token: " + AUTH_TOKEN;
 const CLIENT_ID = "";
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
