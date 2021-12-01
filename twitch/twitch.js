@@ -10,13 +10,12 @@ window.onload = () => {
   if (document.location.hash) {
     let loadedAuthCode = document.location.hash.substr(1);
     console.log(loadedAuthCode);
-    return loadedAuthCode;
+    const AUTH_TOKEN = loadedAuthCode;
   } else {
     console.log("No document.location.hash");
   }
 };
 
-const AUTH_TOKEN = loadedAuthCode;
 const authBtn = document.getElementById("authBtn");
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
