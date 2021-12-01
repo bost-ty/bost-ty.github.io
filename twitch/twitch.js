@@ -41,8 +41,15 @@ const twitchAuthHeaders = {
   "Client-Id": CLIENT_ID,
 };
 
-let dataPOST = { data1: "abcd1234" }; // whatever it is
-const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable... not sure about this one.
+function definePostData() {
+  let dataPOST = {};
+  if (AUTH_TOKEN) {
+    let dataPOST = { data1: "abcd1234" }; // TODO: Set data to be posted (programmatically)
+  }
+  return dataPOST;
+}
+
+const twitchAuthPOSTBody = JSON.stringify(definePostData());
 const twitchAuthPOSTInit = {
   method: "POST",
   headers: twitchAuthHeaders,
