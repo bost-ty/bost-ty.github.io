@@ -12,14 +12,13 @@ function checkOnLoad() {
   } else {
     console.log("No document.location.hash");
   }
+  /* Constants */
+  const CLIENT_ID = document.getElementById("clientId").value;
+
+  const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 }
 
 window.onload = checkOnLoad();
-
-/* Constants */
-const CLIENT_ID = document.getElementById("clientId").value;
-
-const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 const authBtn = document.getElementById("authBtn");
 
