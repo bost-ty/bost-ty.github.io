@@ -14,16 +14,22 @@ if (document.location.hash && document.location.hash != "") {
   const parsedHash = null;
 }
 
-function defineAuthToken() {
+function getAuthToken() {
   if (parsedHash) {
     if (parsedHash.get("access_token")) {
       return parsedHash.get("access_token");
     } else return null;
   }
 }
-const AUTH_TOKEN = defineAuthToken();
+const AUTH_TOKEN = getAuthToken();
 
-function defineAuthScope() {}
+function getAuthScope() {
+  if (parsedHash) {
+    if (parsedHash.get("scope")) {
+      return parsedHash.get("scope");
+    } else return null;
+  }
+}
 
 if (AUTH_TOKEN) {
   document.getElementById(
