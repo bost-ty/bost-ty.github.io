@@ -26,8 +26,8 @@ main {
   place-items: center;
 }
 
-.heading {
-  margin: 2rem 0 4rem 0;
+.vertical-space {
+  margin: 2rem 0;
 }
 
 #authBtn {
