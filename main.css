@@ -24,6 +24,7 @@ main {
 .center {
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
 .vertical-space {
