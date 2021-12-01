@@ -82,8 +82,8 @@ const twitchAuthPOSTRequest = new Request(
 );
 
 // This is by default a GET after a non-modified call to a URL
-async function fetchAsync(url, init = {}) {
-  let response = await fetch(url, init);
+async function fetchAsync(url) {
+  let response = await fetch(url);
   let data = await response.json();
   return data;
 }
