@@ -6,6 +6,16 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
+function parseHash() {
+  if (document.location.hash && document.location.hash != "") {
+    let parsedHash = new URLSearchParams(document.location.hash.substr(1));
+    return parsedHash;
+    // if (parsedHash.get("access_token")) {
+    //   return parsedHash.get("access_token");
+    // } else return null;
+  } else throw new Error("No hash to parse");
+}
+
 function defineAuthToken() {
   if (document.location.hash && document.location.hash != "") {
     let parsedHash = new URLSearchParams(document.location.hash.substr(1));
@@ -14,6 +24,8 @@ function defineAuthToken() {
     } else return null;
   }
 }
+
+function defineAuthScope() {}
 
 const CLIENT_ID = "";
 const AUTH_TOKEN = defineAuthToken();
