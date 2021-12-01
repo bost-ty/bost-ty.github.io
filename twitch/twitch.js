@@ -43,7 +43,7 @@ function onAuthSubmit() {
  *     });
  **/
 
-// Define variables for ease of use, succintness
+// Define variables for ease of use, clarity of requests
 const baseURL = "https://api.twitch.tv/helix";
 const twitchAuthPOSTUrl = `${baseURL}/some/path`;
 const twitchAuthPOSTHeaders = new Headers({
