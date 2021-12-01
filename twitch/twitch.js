@@ -16,7 +16,7 @@ if (document.location.hash) {
 }
 
 const authBtn = document.getElementById("authBtn");
-const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
+const CLIENT_ID = "";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
 
