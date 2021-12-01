@@ -21,7 +21,7 @@ function onAuthSubmit() {
   ).then((data) => console.table(data.data.thumbnail));
   fetchAsync(
     `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`
-  );
+  ).then((data) => console.log(data));
 
   // window.location.href = "https://bost-ty.github.io";
 }
