@@ -10,17 +10,18 @@ function defineAuthToken() {
   if (document.location.hash && document.location.hash != "") {
     let parsedHash = new URLSearchParams(document.location.hash.substr(1));
     if (parsedHash.get("access_token")) {
-      document.getElementById("authTokenDiv").textContent =
-        "Auth token: " + parsedHash.get("access_token");
       return parsedHash.get("access_token");
     } else return null;
   } else console.log("No document hash");
 }
 
+const CLIENT_ID = "";
 const AUTH_TOKEN = defineAuthToken();
 
 const authBtn = document.getElementById("authBtn");
-const CLIENT_ID = "";
+document
+  .getElementById("authTokenDiv")
+  .insertAdjacentText(`Auth token: ${AUTH_TOKEN}`);
 
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`;
