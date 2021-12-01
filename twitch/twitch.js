@@ -8,7 +8,7 @@
 
 window.onload = () => {
   if (document.location.hash) {
-    console.log(document.location.hash);
+    let lochash = document.location.hash.substr(1);
     AUTH_TOKEN = document.location.hash;
   } else {
     console.log("No document.location.hash");
@@ -20,14 +20,16 @@ const authBtn = document.getElementById("authBtn");
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
-function onAuthSubmit() {
+async function onAuthSubmit() {
   // Do your thing(s)
   //   fetchAsync(
   //     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
   //   ).then((data) => console.table(data.data.thumbnail));
-  fetchAsync(
+  await fetchAsync(
     `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`
-  ).then((data) => console.log(data));
+  );
+  if (!response.ok) {
+  }
   return;
   // window.location.href = "https://bost-ty.github.io";
 }
@@ -81,4 +83,10 @@ async function fetchAsync(url) {
   let response = await fetch(url);
   let data = await response.json();
   return data;
+}
+
+// "Get Twitch Channel"
+async function getTwitchChannel(user) {
+  token = "";
+  return;
 }
