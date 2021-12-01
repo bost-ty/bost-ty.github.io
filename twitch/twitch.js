@@ -10,7 +10,6 @@ if (document.location.hash) {
   let loadedAuthCode = document.location.hash.substr(1);
   console.log(loadedAuthCode);
   const AUTH_TOKEN = loadedAuthCode;
-  return AUTH_TOKEN;
 } else {
   console.log("No document.location.hash");
 }
