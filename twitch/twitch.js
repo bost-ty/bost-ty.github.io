@@ -6,19 +6,17 @@
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
 
-
 function checkOnLoad() {
-    if (document.location.hash) {
-        console.log(document.location.hash)
-    } else {
-        console.log("No document.location.hash")
-    }
+  if (document.location.hash) {
+    console.log(document.location.hash);
+  } else {
+    console.log("No document.location.hash");
+  }
 }
 
 window.onload = checkOnLoad();
 
 /* FAKE SECRETS */
-const AUTH_TOKEN = "ABCD1234";
 const CLIENT_ID = "123456";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
@@ -26,11 +24,11 @@ const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
   // Do things!
+  //   fetchAsync(
+  //     "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
+  //   ).then((data) => console.table(data.data.thumbnail));
   fetchAsync(
-    "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
-  ).then((data) => console.table(data.data.thumbnail));
-  fetchAsync(
-    `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`,
+    `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=channel:read:redemptions`
   ).then((data) => console.log(data));
 
   // window.location.href = "https://bost-ty.github.io";
