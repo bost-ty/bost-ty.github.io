@@ -13,11 +13,13 @@
     <main>
       <div class="heading center">
         <h1>Twitch Authentication</h1>
-        <input type="text" name="clientId" id="clientId" />
         <p>
           Click the button below to authorize access to your Twitch channel:
         </p>
-        <button id="authBtn" onclick="onAuthSubmit()">Authorize</button>
+        <div>
+          <input type="text" name="clientId" id="clientId" />
+          <button id="authBtn" onclick="onAuthSubmit()">Authorize</button>
+        </div>
       </div>
     </main>
   </body>
