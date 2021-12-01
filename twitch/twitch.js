@@ -47,7 +47,6 @@ if (AUTH_SCOPE) {
 
 if (AUTH_TOKEN && AUTH_SCOPE) {
   p.append("Paragraph text");
-  p.classList.add("center");
   div.append(p);
   MAIN.append(div);
 }
