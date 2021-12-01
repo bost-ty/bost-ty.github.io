@@ -5,18 +5,16 @@
  *    https://github.com/twitchdev/authentication-node-sample/blob/main/index.js
  *    https://discuss.dev.twitch.tv/t/getting-user-ids/13806/8
  */
-console.log(1, CLIENT_ID);
-var CLIENT_ID = document.getElementById("CLIENT_ID").value;
-var REDIRECT_URI = "https://bost-ty.github.io/twitch";
+
+const CLIENT_ID = document.getElementById("CLIENT_ID");
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 
 window.onload = () => {
-  console.log(2, CLIENT_ID);
   if (document.location.hash) {
     console.log(document.location.hash);
   } else {
     console.log("No document.location.hash");
   }
-  console.log(3, CLIENT_ID);
 };
 
 const authBtn = document.getElementById("authBtn");
@@ -32,7 +30,6 @@ function onAuthSubmit() {
   return;
   // window.location.href = "https://bost-ty.github.io";
 }
-console.log(4, CLIENT_ID);
 /** Example POST method implementation:
  *   async function postData(url = '', data = {}) {
  *     // Default options are marked with *
@@ -72,7 +69,6 @@ const twitchAuthPOSTInit = {
   headers: twitchAuthPOSTHeaders,
   body: twitchAuthPOSTBody,
 };
-console.log(5, CLIENT_ID);
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
   twitchAuthPOSTUrl,
