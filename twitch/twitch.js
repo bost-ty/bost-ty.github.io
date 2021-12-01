@@ -13,7 +13,7 @@ const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
   // Do things!
-  fetchAsync("https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail").then((data) => console.log(data.data.thumbnail));
+  fetchAsync("https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail").then((data) => console.table(data.data.thumbnail));
 
   // window.location.href = "https://bost-ty.github.io";
 }
