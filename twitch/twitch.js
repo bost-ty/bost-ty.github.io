@@ -33,14 +33,18 @@ function getAuthScope(parsedHash) {
 
 const AUTH_SCOPE = getAuthScope(parsedHash);
 
-console.log(AUTH_SCOPE);
+const p = document.createElement("p");
 
 if (AUTH_TOKEN) {
   document
     .getElementById("authTokenDiv")
-    .append(
-      (document.createElement("p").innerText = `Auth token: ${AUTH_TOKEN}`)
-    );
+    .append((p.innerText = `Auth token: ${AUTH_TOKEN}`));
+}
+
+if (AUTH_SCOPE) {
+  document
+    .getElementById("authScopeDiv")
+    .append((p.innerText = `Auth scope: ${AUTH_SCOPE}`));
 }
 
 const authBtn = document.getElementById("authBtn");
