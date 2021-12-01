@@ -13,11 +13,54 @@ function onAuthSubmit() {
   window.location.href = "https://bost-ty.github.io";
 }
 
-/* ES7 async GET */
-async function fetchAsync(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
+/** Example POST method implementation:
+ *   async function postData(url = '', data = {}) {
+ *     // Default options are marked with *
+ *     const response = await fetch(url, {
+ *       method: 'POST', // *GET, POST, PUT, DELETE, etc.
+ *       mode: 'cors', // no-cors, *cors, same-origin
+ *       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+ *       credentials: 'same-origin', // include, *same-origin, omit
+ *       headers: {
+ *         'Content-Type': 'application/json'
+ *         // 'Content-Type': 'application/x-www-form-urlencoded',
+ *       },
+ *       redirect: 'follow', // manual, *follow, error
+ *       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+ *       body: JSON.stringify(data) // body data type must match "Content-Type" header
+ *     });
+ *     return response.json(); // parses JSON response into native JavaScript objects
+ *   }
+ *
+ *   postData('https://example.com/answer', { answer: 42 })
+ *     .then(data => {
+ *       console.log(data); // JSON data parsed by `data.json()` call
+ *     });
+ **/
 
-const baseURL = "https://api.twitch.tv/helix"
+// Define variables for ease of use, succintness
+const baseURL = "https://api.twitch.tv/helix";
+const twitchAuthPOSTUrl = `${baseURL}/some/path`;
+const twitchAuthPOSTHeaders = new Headers({
+  "Authorization-Bearer": AUTH_TOKEN,
+});
+
+let dataPOST = { data1: "abcd1234" }; // whatever it is
+const twitchAuthPOSTBody = JSON.stringify(dataPOST); // intermediate variable... not sure about this one.
+const twitchAuthPOSTInit = {
+  method: "POST", // default: GET
+  headers: twitchAuthPOSTHeaders,
+  body: twitchAuthPostBody,
+};
+// Put it all together...
+const twitchAuthPOSTRequest = new Request(
+  twitchAuthPOSTUrl,
+  new twitchAuthPostInit()
+);
+
+// This is by default a GET after a non-modified call to a URL
+async function fetchAsync(url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+  }
