@@ -7,17 +7,13 @@
  */
 
 const AUTH_TOKEN = () => {
-  if (!document.location.hash) {
-    return null;
-  } else if (document.location.hash) {
-    let hash = document.location.hash.substring(1);
-    let params = {};
-    hash.split("&").map((hk) => {
-      let temp = hk.split("=");
-      params[temp[0]] = temp[1];
-    });
-    console.log(params);
-  }
+  if (document.location.hash && document.location.hash != "") {
+    let parsedHash = new URLSearchParams(document.location.hash.substr(1));
+    if (parsedHash.get("access_token")) {
+      console.log(parsedHash.get("access_token"));
+      return parsedHash.get("access_token");
+    } else return null;
+  } else console.log("No document hash");
 };
 
 const authBtn = document.getElementById("authBtn");
