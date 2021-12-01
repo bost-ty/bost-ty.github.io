@@ -26,7 +26,7 @@ const AUTH_TOKEN = getAuthToken(parsedHash);
 function getAuthScope(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("scope")) {
-      return [...parsedHash.get("scope")];
+      return decodeURIComponent(parsedHash.get("scope"));
     } else return null;
   }
 }
