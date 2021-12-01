@@ -12,7 +12,7 @@ function defineAuthToken() {
     if (parsedHash.get("access_token")) {
       return parsedHash.get("access_token");
     } else return null;
-  } else console.log("No document hash");
+  }
 }
 
 const CLIENT_ID = "";
