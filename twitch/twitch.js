@@ -36,7 +36,6 @@ async function onAuthSubmit() {
 
 // Define variables for ease of use, clarity of future requests
 const twitchBaseURL = "https://api.twitch.tv/helix";
-const twitchAuthURL = `${twitchBaseURL}/some/path`;
 const twitchAuthHeaders = {
   Authorization: `Bearer: ${AUTH_TOKEN}`,
   "Client-Id": CLIENT_ID,
