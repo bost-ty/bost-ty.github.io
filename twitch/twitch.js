@@ -9,19 +9,20 @@
 window.onload = () => {
   if (document.location.hash) {
     console.log(document.location.hash);
+    AUTH_TOKEN = document.location.hash;
   } else {
     console.log("No document.location.hash");
   }
 };
 
+let AUTH_TOKEN = "";
 const authBtn = document.getElementById("authBtn");
 const clientInput = document.getElementById("CLIENT_ID");
-let CLIENT_ID = '';
+let CLIENT_ID = "";
 if (clientInput) {
   CLIENT_ID = clientInput.nodeValue;
 }
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-
 
 function onAuthSubmit() {
   // Do things!
