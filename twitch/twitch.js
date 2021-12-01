@@ -8,6 +8,18 @@
 
 const CLIENT_ID = "";
 
+const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
+// curl -X GET 'https://id.twitch.tv/oauth2/validate' \
+// -H 'Authorization: Bearer <access token goes here>'
+
+async function validateTwitchRequest() {
+  await fetch(twitchValidationEndpoint, {
+    headers: { Authorization: `Bearer: ${AUTH_TOKEN}` },
+  })
+    .then((res) => res.ok)
+    .catch((err) => console.error(err));
+}
+
 const hashCheck = document.location.hash && document.location.hash != "";
 
 let parsedHash = hashCheck
@@ -60,8 +72,8 @@ async function onAuthSubmit() {
 // Define variables for ease of use, clarity of future requests
 const twitchBaseURL = "https://api.twitch.tv/helix";
 const twitchAuthHeaders = {
-  Authorization: `Bearer: ${AUTH_TOKEN}`,
   "Client-Id": CLIENT_ID,
+  Authorization: `Bearer: ${AUTH_TOKEN}`,
 };
 
 function definePostData() {
