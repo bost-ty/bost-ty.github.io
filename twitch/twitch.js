@@ -28,6 +28,7 @@ const baseURL = "https://api.twitch.tv/helix";
 const twitchAuthPOSTUrl = `${baseURL}/some/path`;
 const twitchAuthPOSTHeaders = new Headers({
   "Authorization-Bearer": AUTH_TOKEN,
+  "Client-Id": CLIENT_ID,
 });
 
 let dataPOST = { data1: "abcd1234" }; // whatever it is
