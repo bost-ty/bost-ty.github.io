@@ -8,7 +8,7 @@
 
 const CLIENT_ID = "";
 
-let hashCheck = document.location.hash && document.location.hash != "";
+const hashCheck = document.location.hash && document.location.hash != "";
 
 const parsedHash = hashCheck
   ? new URLSearchParams(document.location.hash.substr(1))
@@ -21,15 +21,17 @@ function getAuthToken(parsedHash) {
     } else return null;
   }
 }
-const AUTH_TOKEN = getAuthToken();
+const AUTH_TOKEN = getAuthToken(parsedHash);
 
 function getAuthScope(parsedHash) {
   if (parsedHash) {
     if (parsedHash.get("scope")) {
-      return parsedHash.get("scope");
+      return [...parsedHash.get("scope")];
     } else return null;
   }
 }
+
+const AUTH_SCOPE = getAuthScope(parsedHash);
 
 if (AUTH_TOKEN) {
   document.getElementById(
