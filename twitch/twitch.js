@@ -13,7 +13,10 @@ const authBtn = document.getElementById("authBtn");
 
 function onAuthSubmit() {
   // Do things!
-  fetchAsync("https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail").then((data) => console.table(data.data.thumbnail));
+  fetchAsync(
+    "https://api.artic.edu/api/v1/artworks/129884?fields=thumbnail"
+  ).then((data) => console.table(data.data.thumbnail));
+  fetchAsync();
 
   // window.location.href = "https://bost-ty.github.io";
 }
@@ -64,8 +67,8 @@ const twitchAuthPOSTRequest = new Request(
 );
 
 // This is by default a GET after a non-modified call to a URL
-async function fetchAsync(url) {
-  let response = await fetch(url);
+async function fetchAsync(url, init = Null) {
+  let response = await fetch(url, init);
   let data = await response.json();
   return data;
 }
