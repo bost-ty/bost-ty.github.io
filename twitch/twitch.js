@@ -15,7 +15,7 @@ window.onload = () => {
   }
 };
 
-// let AUTH_TOKEN = "";
+let AUTH_TOKEN = "";
 const authBtn = document.getElementById("authBtn");
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
