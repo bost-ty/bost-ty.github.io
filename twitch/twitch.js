@@ -94,14 +94,25 @@ async function validateTwitchRequest() {
     .catch((err) => console.log("Error: " + err));
 }
 
+console.log("validateTwitchRequest alone ", validateTwitchRequest());
+
 // "Get Twitch User Information"
 async function getUserInformation(username) {
-  const queryURL = `${twitchBaseURL}/users?login=${username}`;
-  return await fetch(queryURL, {
-    headers: twitchAuthHeaders,
-  })
-    .then((res) => res.json)
-    .catch((err) => console.log("Error: " + err));
+  // Validate OAuth before sending request
+  let response = await validateTwitchRequest();
+  console.log(`Response: ${response}`);
+  if (!response.ok) {
+    throw new Error(`HTTP Error, status: ${response.status}`);
+  } else if (response.ok) {
+    const queryURL = `${twitchBaseURL}/users?login=${username}`;
+    return await fetch(queryURL, {
+      headers: twitchAuthHeaders,
+    })
+      .then((res) => res.json)
+      .catch((err) => console.log(err));
+  } else {
+    console.log("Unknown error, please scream.");
+  }
 }
 
 console.log(getUserInformation("alittletesting"));
