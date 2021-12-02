@@ -36,8 +36,8 @@ const AUTH_SCOPE = getAuthScope(parsedHash);
 
 const twitchBaseURL = "https://api.twitch.tv/helix";
 const twitchAuthHeaders = {
-  "Client-Id": CLIENT_ID,
   Authorization: `Bearer: ${AUTH_TOKEN}`,
+  "Client-Id": CLIENT_ID,
 };
 
 /* *****************
