@@ -121,24 +121,24 @@ function getInputValue(inputId) {
 //   return usernameValue;
 // }
 
-// "Submit usernameInput request"
-async function onUsernameInputSubmit() {
-  const username = getInputValue("usernameInput");
-  return await getUserInformation(username);
-}
-
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
 
   console.log(queryURL, { ...twitchAuthHeaders });
-  
+
   return await fetch(queryURL, {
     headers: { ...twitchAuthHeaders },
   })
     .then((res) => res.json)
     .then((data) => console.table(data))
     .catch((err) => console.log("Error: " + err));
+}
+
+// "Submit usernameInput request"
+async function onUsernameInputSubmit() {
+  const username = getInputValue("usernameInput");
+  return await getUserInformation(username);
 }
 
 /* *******************
