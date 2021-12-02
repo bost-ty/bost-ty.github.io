@@ -114,14 +114,11 @@ function onInputChange() {
   let value = input.value;
   console.log(e);
   console.log(value);
-  // let inputText = e.target.value;
-  // console.log(inputText);
 }
 
 // "Submit usernameInput request"
-function onInputSubmit(e) {
-  e.preventDefault();
-  console.log("Submit: ", e);
+function onInputSubmit() {
+  console.log("Submit: ");
 }
 
 // "Get Twitch User Information"
