@@ -112,6 +112,7 @@ async function onAuthSubmit() {
 function onUsernameInputChange(e) {
   console.log("Change: ", e);
   let inputText = e.target.value;
+  console.log(inputText);
 }
 
 // "Submit usernameInput request"
