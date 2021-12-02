@@ -112,7 +112,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  window.href = "https://google.com";
+  window.location.href = "https://google.com";
   let response = await fetch(TOKEN_URL, { mode: "no-cors" })
     .then((res) => {
       return res;
