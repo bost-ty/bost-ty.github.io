@@ -97,11 +97,11 @@ async function validateTwitchRequest() {
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
-  let response = await fetch(queryURL, {
+  return await fetch(queryURL, {
     headers: twitchAuthHeaders,
-  });
-  let data = await response.json();
-  return data;
+  })
+    .then((res) => res.json)
+    .catch((err) => console.log("Error: " + err));
 }
 
 console.log(getUserInformation("alittletesting"));
