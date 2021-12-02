@@ -84,6 +84,9 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   div.append(p);
   MAIN.append(div);
 
+  getUserInformation("bostty");
+  getUserInformation("alittletesting");
+
   let ARBITRARY_CONDITION = true;
   let pollForEvents = setInterval(() => {
     console.log("Event polled...");
@@ -115,9 +118,6 @@ async function getUserInformation(username) {
     .then((data) => console.log)
     .catch((err) => console.log("Error: " + err));
 }
-
-getUserInformation("bostty");
-getUserInformation("alittletesting");
 
 /* *******************
  * POST Request Land *
