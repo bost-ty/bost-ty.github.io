@@ -125,8 +125,6 @@ function getInputValue(inputId) {
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
 
-  console.log(queryURL, { ...twitchAuthHeaders });
-
   return await fetch(queryURL, {
     headers: { ...twitchAuthHeaders },
   })
@@ -137,6 +135,8 @@ async function getUserInformation(username) {
     .then((data) => console.table)
     .catch((err) => console.log("Error: " + err));
 }
+
+console.table(getUserInformation("alittletesting"));
 
 // "Submit usernameInput request"
 async function onUsernameInputSubmit() {
