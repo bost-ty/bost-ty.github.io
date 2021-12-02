@@ -36,3 +36,7 @@ button {
   padding: 1.5rem 3rem;
   border-radius: .25rem;
 }
+
+input[type=text] {
+  padding: 3px;
+}
