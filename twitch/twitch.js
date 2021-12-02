@@ -112,14 +112,8 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  window.location.href = "https://google.com";
-  let response = await fetch(TOKEN_URL, { mode: "no-cors" })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => console.log("Error: " + err));
-  console.log(response);
-  return response;
+  window.location.href = "TOKEN_URL";
+  return;
 }
 
 // Get value of a certain input or element
