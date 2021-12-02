@@ -26,14 +26,6 @@ const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
 
-const twitchBaseURL = "https://api.twitch.tv/helix";
-const twitchAuthHeaders = {
-  "Client-Id": CLIENT_ID,
-  Authorization: `Bearer: ${AUTH_TOKEN}`,
-};
-
-console.log(twitchAuthHeaders);
-
 // Hashes and products of hashes:
 const hashCheck = document.location.hash && document.location.hash != "";
 const parsedHash = hashCheck
@@ -41,6 +33,14 @@ const parsedHash = hashCheck
   : null;
 const AUTH_TOKEN = getAuthToken(parsedHash);
 const AUTH_SCOPE = getAuthScope(parsedHash);
+
+const twitchBaseURL = "https://api.twitch.tv/helix";
+const twitchAuthHeaders = {
+  "Client-Id": CLIENT_ID,
+  Authorization: `Bearer: ${AUTH_TOKEN}`,
+};
+
+console.log(twitchAuthHeaders);
 
 /* *****************
  * Text population *
