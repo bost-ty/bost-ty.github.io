@@ -12,7 +12,7 @@
 
 // DOM creation & manipulation:
 const MAIN = document.getElementById("main");
-const TEXT_TO_APPEND = "placeholder text {} !@#$%^&*()-=/\\";
+let textToAppend = "";
 const div = document.createElement("div");
 const p = document.createElement("p");
 const button = document.createElement("button");
@@ -43,6 +43,13 @@ const twitchAuthHeaders = {
 /* ********************
  * Utilities, getters *
  ******************** */
+
+// "Update textToAppend for display on page"
+function updateTextToAppend(newText) {
+  if (textToAppend === newText) return textToAppend;
+  textToAppend = newText;
+  return textToAppend;
+}
 
 // "Return auth token from parsed URI hash"
 function getAuthToken(parsedHash) {
@@ -80,7 +87,7 @@ if (AUTH_SCOPE) {
 
 // "When token and scopes are retrieved..."
 if (AUTH_TOKEN && AUTH_SCOPE) {
-  p.append(TEXT_TO_APPEND);
+  p.append(textToAppend);
   div.append(p);
   MAIN.append(div);
 
@@ -122,7 +129,7 @@ function getInputValue(inputId) {
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
 
-  const data = await fetch(queryURL, {
+  let data = await fetch(queryURL, {
     headers: { ...twitchAuthHeaders },
   })
     .then((res) => {
@@ -139,7 +146,9 @@ async function getUserInformation(username) {
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
   if (username) {
-    return await getUserInformation(username);
+    userInformation = await getUserInformation(username);
+    updateTextToAppend(userInformation);
+    return userInformation;
   }
 }
 
