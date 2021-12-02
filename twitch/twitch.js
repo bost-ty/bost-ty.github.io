@@ -18,7 +18,7 @@ const p = document.createElement("p");
 const button = document.createElement("button");
 
 // Constants and URLS:
-const globalPollInterval = 3000; // ms
+const globalPollInterval = 1000; // ms
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
