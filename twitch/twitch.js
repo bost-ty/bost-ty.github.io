@@ -55,13 +55,13 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   p.append(TEXT_TO_APPEND);
   div.append(p);
   MAIN.append(div);
+  let intervalCount = 0;
   let pollForEvents = setInterval(() => {
-    let intervalCount = 0;
     console.log("Event polled...");
-    intervalCount++;
-    if (intervalCount >= 10) {
+    intervalCount = intervalCount + 1;
+    if (intervalCount === 10) {
       clearInterval(pollForEvents);
-      pollForEvents = null;
+      // pollForEvents = null;
       console.log("Clearing interval...");
     }
   }, globalPollInterval);
