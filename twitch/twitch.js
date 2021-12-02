@@ -10,11 +10,15 @@
  * Global variables *
  ****************** */
 
+// DOM creation & manipulation:
 const MAIN = document.getElementById("main");
 const TEXT_TO_APPEND = "placeholder text {} !@#$%^&*()-=/\\";
 const div = document.createElement("div");
 const p = document.createElement("p");
+const button = document.createElement("button");
 
+// Constants and URLS:
+const globalPollInterval = 3000; // ms
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
@@ -22,6 +26,7 @@ const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
 
+// Hashes and products of hashes:
 const hashCheck = document.location.hash && document.location.hash != "";
 const parsedHash = hashCheck
   ? new URLSearchParams(document.location.hash.substr(1))
@@ -99,6 +104,20 @@ function getAuthScope(parsedHash) {
     } else return null;
   }
 }
+
+/* *************************************
+ * EventListeners, timeouts, intervals *
+ ************************************* */
+
+let clicks = 0;
+document.addEventListener("click", function () {
+  clicks++;
+  return clicks;
+});
+
+const pollForEvents = setInterval(() => {
+  console.log("Event polled...");
+}, globalPollInterval);
 
 /* --- NOT YET ORGANIZED --- */
 
