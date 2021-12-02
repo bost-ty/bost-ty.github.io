@@ -103,7 +103,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  return await fetch(TOKEN_URL, { mode: "no-cors" })
+  return await fetch(TOKEN_URL, { ...args, mode: "no-cors" })
     .then((res) => res.json())
     .catch((err) => console.log("Error: " + err));
 }
@@ -112,7 +112,7 @@ async function onAuthSubmit() {
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
   return await fetch(queryURL, {
-    headers: twitchAuthHeaders,
+    headers: { ...twitchAuthHeaders },
   })
     .then((res) => res.json)
     .then((data) => console.log)
