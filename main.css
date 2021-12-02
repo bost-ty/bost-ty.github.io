@@ -4,6 +4,7 @@ body {
 }
 
 h1 {
+  font-size: 150%;
   max-width: 60ch;
   line-height: 1.1;
 }
