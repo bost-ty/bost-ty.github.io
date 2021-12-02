@@ -26,6 +26,14 @@ const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
 
+const twitchBaseURL = "https://api.twitch.tv/helix";
+const twitchAuthHeaders = {
+  "Client-Id": CLIENT_ID,
+  Authorization: `Bearer: ${AUTH_TOKEN}`,
+};
+
+console.log(twitchAuthHeaders);
+
 // Hashes and products of hashes:
 const hashCheck = document.location.hash && document.location.hash != "";
 const parsedHash = hashCheck
@@ -86,12 +94,17 @@ async function validateTwitchRequest() {
     .catch((err) => console.log("Error: " + err));
 }
 
-// "Get Twitch Channel"
-async function getTwitchChannel(user) {
+// "Get Twitch User Information"
+async function getUserInformation(username) {
+  const queryURL = "";
   let response = await fetch(URL);
   let data = await response.json();
   return data;
 }
+
+// curl -X GET 'https://api.twitch.tv/helix/users?login=twitchdev' \
+// -H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
+// -H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz'
 
 /* ********************
  * Utilities, getters *
@@ -118,11 +131,11 @@ function getAuthScope(parsedHash) {
 /* --- NOT YET ORGANIZED --- */
 
 // Define variables for ease of use, clarity of future requests
-const twitchBaseURL = "https://api.twitch.tv/helix";
-const twitchAuthHeaders = {
-  "Client-Id": CLIENT_ID,
-  Authorization: `Bearer: ${AUTH_TOKEN}`,
-};
+// const twitchBaseURL = "https://api.twitch.tv/helix";
+// const twitchAuthHeaders = {
+//   "Client-Id": CLIENT_ID,
+//   Authorization: `Bearer: ${AUTH_TOKEN}`,
+// };
 
 function definePostData() {
   let dataPOST = {};
