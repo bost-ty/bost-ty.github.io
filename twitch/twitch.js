@@ -112,9 +112,12 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  return await fetch(TOKEN_URL, { mode: "no-cors" })
-    .then((res) => res.json())
+  let response = await fetch(TOKEN_URL, { mode: "no-cors" })
+    .then((res) => {
+      return res;
+    })
     .catch((err) => console.log("Error: " + err));
+  return response.json();
 }
 
 // Get value of a certain input or element
@@ -148,7 +151,7 @@ async function getUserInformation(username) {
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
   if (username) {
-    userInformation = await getUserInformation(username);
+    let userInformation = await getUserInformation(username);
     updateTextToAppend(userInformation);
     return userInformation;
   }
