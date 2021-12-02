@@ -109,8 +109,11 @@ async function onAuthSubmit() {
 }
 
 // "Get text input change, save it to variable"
-function onInputChange(e) {
+function onInputChange() {
+  const input = document.getElementById("usernameInput");
+  let value = input.value;
   console.log(e);
+  console.log(value);
   // let inputText = e.target.value;
   // console.log(inputText);
 }
