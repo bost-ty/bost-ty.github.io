@@ -140,7 +140,6 @@ async function getUserInformation(username) {
     })
     .catch((err) => console.log("Error: " + err));
 
-  console.log("Res, ", res);
   console.log("Data, ", data);
   return data;
 }
