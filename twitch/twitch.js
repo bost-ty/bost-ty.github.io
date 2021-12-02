@@ -108,6 +108,16 @@ async function onAuthSubmit() {
     .catch((err) => console.log("Error: " + err));
 }
 
+// "Get text input change, save it to variable"
+function onUsernameInputChange(e) {
+  console.log("Change: ", e);
+}
+
+// "Submit usernameInput request"
+function onUsernameInputSubmit(e) {
+  console.log("Submit: ", e);
+}
+
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
