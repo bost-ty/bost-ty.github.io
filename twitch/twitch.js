@@ -112,7 +112,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  window.location.href = "TOKEN_URL";
+  window.location.href = TOKEN_URL;
   return;
 }
 
