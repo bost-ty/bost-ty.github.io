@@ -116,7 +116,7 @@ async function onAuthSubmit() {
   return;
 }
 
-// Get value of a certain input or element
+// "Get value of a certain element (by id)"
 function getInputValue(inputId) {
   const inputValue = document.getElementById(inputId).value;
   return inputValue;
