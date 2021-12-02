@@ -117,7 +117,8 @@ async function onAuthSubmit() {
       return res;
     })
     .catch((err) => console.log("Error: " + err));
-  return response.json();
+  console.log(response);
+  return response;
 }
 
 // Get value of a certain input or element
