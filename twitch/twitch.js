@@ -40,6 +40,11 @@ const twitchAuthHeaders = {
   "Client-Id": CLIENT_ID,
 };
 
+const twitchInit = {
+  mode: "no-cors",
+  headers: twitchAuthHeaders,
+};
+
 /* ********************
  * Utilities, getters *
  ******************** */
@@ -129,9 +134,7 @@ function getInputValue(inputId) {
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
 
-  let data = await fetch(queryURL, {
-    headers: { ...twitchAuthHeaders },
-  })
+  let data = await fetch(queryURL, twitchInit)
     .then((res) => {
       res.json;
     })
