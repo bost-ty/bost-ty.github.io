@@ -97,16 +97,14 @@ async function validateTwitchRequest() {
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
-  let response = await fetch(URL);
+  let response = await fetch(queryURL, {
+    headers: twitchAuthHeaders,
+  });
   let data = await response.json();
   return data;
 }
 
 console.log(getUserInformation("alittletesting"));
-
-// curl -X GET 'https://api.twitch.tv/helix/users?login=twitchdev' \
-// -H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
-// -H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz'
 
 /* ********************
  * Utilities, getters *
