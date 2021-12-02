@@ -78,7 +78,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
  * Fetch calls *
  ************* */
 
-// "Enter Twithc OAuth Implicit flow"
+// "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
   return await fetch(TOKEN_URL)
     .then((res) => res.json())
@@ -150,7 +150,7 @@ const twitchPOSTInit = {
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
   `${twitchBaseURL}/some/query`,
-  twitchAuthPOSTInit
+  twitchPOSTInit
 );
 
 /* --- NOTES, REFERENCE --- */
