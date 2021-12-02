@@ -11,11 +11,9 @@
  ****************** */
 
 const MAIN = document.getElementById("main");
-
+const TEXT_TO_APPEND = "placeholder text {} !@#$%^&*()-=/\\";
 const div = document.createElement("div");
 const p = document.createElement("p");
-
-const TEXT_TO_APPEND = "placeholder text - placeholder text {} !@#$%^&*()-=/\\";
 
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
