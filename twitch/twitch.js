@@ -50,10 +50,14 @@ if (AUTH_SCOPE) {
   ).innerText = `Auth scope: ${AUTH_SCOPE}`;
 }
 
+// "When token and scopes are retrieved..."
 if (AUTH_TOKEN && AUTH_SCOPE) {
   p.append(TEXT_TO_APPEND);
   div.append(p);
   MAIN.append(div);
+  const pollForEvents = setInterval(() => {
+    console.log("Event polled...");
+  }, globalPollInterval);
 }
 
 /* *************
@@ -104,20 +108,6 @@ function getAuthScope(parsedHash) {
     } else return null;
   }
 }
-
-/* *************************************
- * EventListeners, timeouts, intervals *
- ************************************* */
-
-let clicks = 0;
-document.addEventListener("click", function () {
-  clicks++;
-  return clicks;
-});
-
-const pollForEvents = setInterval(() => {
-  console.log("Event polled...");
-}, globalPollInterval);
 
 /* --- NOT YET ORGANIZED --- */
 
