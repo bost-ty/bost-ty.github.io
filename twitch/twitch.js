@@ -132,8 +132,6 @@ async function getUserInformation(username) {
     .catch((err) => console.log("Error: " + err));
 }
 
-console.table(getUserInformation("alittletesting"));
-
 // "Submit usernameInput request"
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
