@@ -101,10 +101,9 @@ async function getUserInformation(username) {
     headers: twitchAuthHeaders,
   })
     .then((res) => res.json)
+    .then((data) => console.log(data))
     .catch((err) => console.log("Error: " + err));
 }
-
-console.log(getUserInformation("alittletesting"));
 
 /* ********************
  * Utilities, getters *
