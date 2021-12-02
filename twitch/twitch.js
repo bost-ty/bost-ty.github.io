@@ -113,7 +113,7 @@ async function getUserInformation(username) {
   })
     .then((res) => res.json)
     .then((data) => console.log)
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("Error: " + err));
 }
 
 getUserInformation("bostty");
