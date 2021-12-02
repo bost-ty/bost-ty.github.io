@@ -138,7 +138,7 @@ async function getUserInformation(username) {
 // "Submit usernameInput request"
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
-  return await getUserInformation(username);
+  if (username) return await getUserInformation(username);
 }
 
 /* *******************
