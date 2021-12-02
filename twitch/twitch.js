@@ -83,34 +83,14 @@ async function onAuthSubmit() {
     .catch((err) => console.log("Error: " + err));
 }
 
-// "Validate OAuth code (before each request)"
-async function validateTwitchRequest() {
-  return await fetch(twitchValidationEndpoint, {
-    headers: { Authorization: `Bearer: ${AUTH_TOKEN}` },
-  })
-    .then((res) => res.ok)
-    .catch((err) => console.log("Error: " + err));
-}
-
-console.log("validateTwitchRequest alone ", validateTwitchRequest());
-
 // "Get Twitch User Information"
 async function getUserInformation(username) {
-  // Validate OAuth before sending request
-  let response = await validateTwitchRequest();
-  console.log(`Response: ${response}`);
-  if (!response.ok) {
-    throw new Error(`HTTP Error, status: ${response.status}`);
-  } else if (response.ok) {
-    const queryURL = `${twitchBaseURL}/users?login=${username}`;
-    return await fetch(queryURL, {
-      headers: twitchAuthHeaders,
-    })
-      .then((res) => res.json)
-      .catch((err) => console.log(err));
-  } else {
-    console.log("Unknown error, please scream.");
-  }
+  const queryURL = `${twitchBaseURL}/users?login=${username}`;
+  return await fetch(queryURL, {
+    headers: twitchAuthHeaders,
+  })
+    .then((res) => res.json)
+    .catch((err) => console.log(err));
 }
 
 console.log("bostty: ", getUserInformation("bostty"));
