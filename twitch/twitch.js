@@ -128,14 +128,9 @@ function getAuthScope(parsedHash) {
   }
 }
 
-/* --- NOT YET ORGANIZED --- */
-
-// Define variables for ease of use, clarity of future requests
-// const twitchBaseURL = "https://api.twitch.tv/helix";
-// const twitchAuthHeaders = {
-//   "Client-Id": CLIENT_ID,
-//   Authorization: `Bearer: ${AUTH_TOKEN}`,
-// };
+/* *******************
+ * POST Request Land *
+ ******************* */
 
 function definePostData() {
   let dataPOST = {};
@@ -145,11 +140,11 @@ function definePostData() {
   return dataPOST;
 }
 
-const twitchAuthPOSTBody = JSON.stringify(definePostData());
-const twitchAuthPOSTInit = {
+const twitchPOSTBody = JSON.stringify(definePostData());
+const twitchPOSTInit = {
   method: "POST",
   headers: twitchAuthHeaders,
-  body: twitchAuthPOSTBody,
+  body: twitchPOSTBody,
 };
 
 // Put it all together...
@@ -159,40 +154,7 @@ const twitchAuthPOSTRequest = new Request(
 );
 
 /* --- NOTES, REFERENCE --- */
-
-/* This is by default a GET after a non-modified call to a URL
-let response = await fetch(url);
-let data = await response.json();
-return data;
-*/
-
-/* ---------- 
-
-// Example POST method implementation:
-async function postData(url = "", data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data), // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
-
-postData("https://example.com/answer", { answer: 42 }).then((data) => {
-  console.log(data); // JSON data parsed by `data.json()` call
-});
-
-
-These are set for the GitHub Pages Example
+/* These are set for the GitHub Pages Example
         // Substitute as needed
         var client_id = 'hozgh446gdilj5knsrsxxz8tahr3koz';
         var redirect = 'https://barrycarlyon.github.io/twitch_misc/authentication/implicit_auth/';
@@ -246,5 +208,4 @@ These are set for the GitHub Pages Example
                 document.getElementById('access_token').textContent = parsedParams.get('error') + ' - ' + parsedParams.get('error_description');
             }
         }
-
---- */
+*/
