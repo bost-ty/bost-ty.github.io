@@ -114,22 +114,30 @@ function getInputValue(inputId) {
   return inputValue;
 }
 
-// "Get text input change, save it to variable"
-function onInputChange() {
-  let value = getInputValue("usernameInput");
-}
+// let usernameValue = "";
+// // "Get text input change, save it to variable"
+// function onInputChange(inputId, usernameValue) {
+//   usernameValue = getInputValue(userna);
+//   return usernameValue;
+// }
 
 // "Submit usernameInput request"
-function onInputSubmit() {}
+async function onUsernameInputSubmit() {
+  const username = getInputValue("usernameInput");
+  return await getUserInformation(username);
+}
 
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
+
+  console.log(queryURL, { ...twitchAuthHeaders });
+  
   return await fetch(queryURL, {
     headers: { ...twitchAuthHeaders },
   })
     .then((res) => res.json)
-    .then((data) => console.log)
+    .then((data) => console.table(data))
     .catch((err) => console.log("Error: " + err));
 }
 
