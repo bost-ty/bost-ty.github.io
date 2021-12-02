@@ -24,14 +24,16 @@
       </div>
       <div>
         <p>Send a request:</p>
-        <input
-          type="text"
-          name="username"
-          id="usernameInput"
-          placeholder="Username"
-          onchange="onUsernameInputChange()"
-          onsubmit="onUsernameInputSubmit()"
-        />
+        <form onsubmit="onUsernameInputSubmit()">
+          <input
+            type="text"
+            name="username"
+            id="usernameInput"
+            placeholder="Username"
+            oninput="onUsernameInputChange()"
+          />
+          <input type="button" value="Submit" />
+        </form>
       </div>
     </main>
     <script src="./twitch.js"></script>

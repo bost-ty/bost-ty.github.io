@@ -111,10 +111,12 @@ async function onAuthSubmit() {
 // "Get text input change, save it to variable"
 function onUsernameInputChange(e) {
   console.log("Change: ", e);
+  let inputText = e.target.value;
 }
 
 // "Submit usernameInput request"
 function onUsernameInputSubmit(e) {
+  e.preventDefault();
   console.log("Submit: ", e);
 }
 
