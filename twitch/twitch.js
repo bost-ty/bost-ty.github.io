@@ -40,6 +40,28 @@ const twitchAuthHeaders = {
   "Client-Id": CLIENT_ID,
 };
 
+/* ********************
+ * Utilities, getters *
+ ******************** */
+
+// "Return auth token from parsed URI hash"
+function getAuthToken(parsedHash) {
+  if (parsedHash) {
+    if (parsedHash.get("access_token")) {
+      return parsedHash.get("access_token");
+    } else return null;
+  }
+}
+
+// "Return auth scope(s) from parsed URI hash"
+function getAuthScope(parsedHash) {
+  if (parsedHash) {
+    if (parsedHash.get("scope")) {
+      return decodeURIComponent(parsedHash.get("scope"));
+    } else return null;
+  }
+}
+
 /* *****************
  * Text population *
  ***************** */
@@ -95,28 +117,6 @@ async function getUserInformation(username) {
 
 console.log("bostty: ", getUserInformation("bostty"));
 console.log("alittletesting: ", getUserInformation("alittletesting"));
-
-/* ********************
- * Utilities, getters *
- ******************** */
-
-// "Return auth token from parsed URI hash"
-function getAuthToken(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("access_token")) {
-      return parsedHash.get("access_token");
-    } else return null;
-  }
-}
-
-// "Return auth scope(s) from parsed URI hash"
-function getAuthScope(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("scope")) {
-      return decodeURIComponent(parsedHash.get("scope"));
-    } else return null;
-  }
-}
 
 /* *******************
  * POST Request Land *
