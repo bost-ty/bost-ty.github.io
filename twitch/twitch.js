@@ -105,6 +105,8 @@ async function getUserInformation(username) {
     .catch((err) => console.log("Error: " + err));
 }
 
+console.log(getUserInformation("alittletesting"));
+
 /* ********************
  * Utilities, getters *
  ******************** */
