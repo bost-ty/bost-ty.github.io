@@ -103,7 +103,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  return await fetch(TOKEN_URL, { ...args, mode: "no-cors" })
+  return await fetch(TOKEN_URL)
     .then((res) => res.json())
     .catch((err) => console.log("Error: " + err));
 }
