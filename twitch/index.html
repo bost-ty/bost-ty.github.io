@@ -24,13 +24,13 @@
       </div>
       <div>
         <p>Send a request:</p>
-        <form onsubmit="onUsernameInputSubmit()">
+        <form onsubmit="onInputSubmit()">
           <input
             type="text"
             name="username"
             id="usernameInput"
             placeholder="Username"
-            oninput="onUsernameInputChange()"
+            oninput="handleInput()"
           />
           <input type="submit" value="Submit" />
         </form>

@@ -109,14 +109,14 @@ async function onAuthSubmit() {
 }
 
 // "Get text input change, save it to variable"
-function onUsernameInputChange(e) {
-  console.log("Change: ", e);
-  let inputText = e.target.value;
-  console.log(inputText);
+function onInputChange(e) {
+  console.log(e, e.target);
+  // let inputText = e.target.value;
+  // console.log(inputText);
 }
 
 // "Submit usernameInput request"
-function onUsernameInputSubmit(e) {
+function onInputSubmit(e) {
   e.preventDefault();
   console.log("Submit: ", e);
 }
