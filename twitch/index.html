@@ -14,7 +14,7 @@
         <h1>Twitch Authentication</h1>
       </div>
       <div>
-        <button id="authBtn" onclick="onAuthSubmit">Authorize on Twitch</button>
+        <button id="authBtn" onclick="onAuthSubmit()">Authorize on Twitch</button>
       </div>
       <div class="vertical-space">
         <p id="authTokenText"></p>
@@ -22,13 +22,13 @@
       </div>
       <div>
         <p>Send a request:</p>
-        <form onsubmit="onInputSubmit">
+        <form onsubmit="onInputSubmit()">
           <input
             type="text"
             name="username"
             id="usernameInput"
             placeholder="Username"
-            oninput="onInputChange"
+            oninput="onInputChange()"
           />
           <input type="submit" value="Submit" />
         </form>
