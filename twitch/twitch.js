@@ -108,17 +108,19 @@ async function onAuthSubmit() {
     .catch((err) => console.log("Error: " + err));
 }
 
+// Get value of a certain input or element
+function getInputValue(inputId) {
+  const inputValue = document.getElementById(inputId).value;
+  return inputValue;
+}
+
 // "Get text input change, save it to variable"
 function onInputChange() {
-  const input = document.getElementById("usernameInput");
-  console.log(input.value);
-  return input.value;
+  let value = getInputValue("usernameInput");
 }
 
 // "Submit usernameInput request"
-function onInputSubmit() {
-  console.log("Submit: ");
-}
+function onInputSubmit() {}
 
 // "Get Twitch User Information"
 async function getUserInformation(username) {
