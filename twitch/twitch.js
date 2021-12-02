@@ -84,9 +84,6 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   div.append(p);
   MAIN.append(div);
 
-  getUserInformation("bostty");
-  getUserInformation("alittletesting");
-
   let ARBITRARY_CONDITION = true;
   let pollForEvents = setInterval(() => {
     console.log("Event polled...");
