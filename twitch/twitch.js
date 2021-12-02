@@ -108,11 +108,9 @@ async function onAuthSubmit() {
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
-  let result = await fetch(queryURL, {
+  return await fetch(queryURL, {
     headers: twitchAuthHeaders,
-  });
-  let data = result.json;
-  return data;
+  }).then((res) => res.json);
 }
 
 console.log("bostty: ", getUserInformation("bostty"));
