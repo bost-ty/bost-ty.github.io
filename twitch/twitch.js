@@ -61,6 +61,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
     intervalCount++;
     if (intervalCount >= 10) {
       clearInterval(pollForEvents);
+      console.log("Clearing interval...");
     }
   }, globalPollInterval);
 }
