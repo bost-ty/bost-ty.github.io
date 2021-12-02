@@ -40,8 +40,6 @@ const twitchAuthHeaders = {
   Authorization: `Bearer: ${AUTH_TOKEN}`,
 };
 
-console.log(twitchAuthHeaders);
-
 /* *****************
  * Text population *
  ***************** */
@@ -115,7 +113,8 @@ async function getUserInformation(username) {
   }
 }
 
-console.log(getUserInformation("alittletesting"));
+console.log("bostty: ", getUserInformation("bostty"));
+console.log("alittletesting: ", getUserInformation("alittletesting"));
 
 /* ********************
  * Utilities, getters *
