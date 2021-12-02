@@ -110,11 +110,14 @@ async function getUserInformation(username) {
   const queryURL = `${twitchBaseURL}/users?login=${username}`;
   return await fetch(queryURL, {
     headers: twitchAuthHeaders,
-  }).then((res) => res.json);
+  })
+    .then((res) => res.json)
+    .then((data) => console.log)
+    .catch((err) => console.log(err));
 }
 
-console.log("bostty: ", getUserInformation("bostty"));
-console.log("alittletesting: ", getUserInformation("alittletesting"));
+getUserInformation("bostty");
+getUserInformation("alittletesting");
 
 /* *******************
  * POST Request Land *
