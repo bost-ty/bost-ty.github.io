@@ -136,8 +136,6 @@ async function fetchUserInformation(username) {
 // "Called when 'Get User Information' button is submitted"
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
-
-  if (username) queryURL = `${baseURL}?login=${username}`;
   return await fetchUserInformation(username);
 }
 
