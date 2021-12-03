@@ -92,15 +92,19 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   div.append(p);
   MAIN.append(div);
 
-  let ARBITRARY_CONDITION = false;
-  window.addEventListener("blur", () => (ARBITRARY_CONDITION = true));
-  let pollForEvents = setInterval(() => {
-    console.log("Event polled...");
-    if (ARBITRARY_CONDITION) {
-      clearInterval(pollForEvents);
-      console.log("Clearing interval...");
-    }
-  }, GLOBAL_POLL_INTERVAL);
+  // let ARBITRARY_CONDITION = false;
+  // window.addEventListener("blur", function handleBlur() {
+  //   ARBITRARY_CONDITION = true;
+  // });
+
+  // let pollForEvents = setInterval(() => {
+  //   console.log("Event polled...");
+  //   if (ARBITRARY_CONDITION) {
+  //     clearInterval(pollForEvents);
+  //     console.log("Clearing interval...");
+  //     window.removeEventListener("blur", handleBlur);
+  //   }
+  // }, GLOBAL_POLL_INTERVAL);
 }
 
 /* *************
