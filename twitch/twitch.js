@@ -21,9 +21,7 @@ const button = document.createElement("button");
 const globalPollInterval = 1000; // ms
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-const REQUEST_SCOPE = encodeURIComponent(
-  "channel:read:redemptions bits:read user:read:email"
-); // https://dev.twitch.tv/docs/authentication#scopes
+const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
