@@ -24,9 +24,12 @@ main {
 .center {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
   text-align: center;
+}
+
+.center > div {
+  margin: .5rem;
 }
 
 .vertical-space {
