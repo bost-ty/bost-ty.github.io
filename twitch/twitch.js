@@ -129,7 +129,7 @@ async function fetchUserInformation(username) {
     .then((res) => res.json())
     .catch((err) => console.log("Error: " + err));
 
-  console.log(userInformation.data);
+  console.log(userInformation.data[0]);
   return userInformation;
 }
 
