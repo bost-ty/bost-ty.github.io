@@ -132,7 +132,7 @@ async function fetchUserInformation(username) {
     .catch((err) => console.log("Error: " + err));
 
   console.log(userInformation.data[0]);
-  return userInformation.data[0];
+  return userInformation;
 }
 
 // "Called when 'Get User Information' button is submitted"
