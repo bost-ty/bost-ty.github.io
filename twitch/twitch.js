@@ -12,31 +12,31 @@
 
 // DOM creation & manipulation:
 const MAIN = document.getElementById("main");
-let textToAppend = "";
 const div = document.createElement("div");
 const p = document.createElement("p");
 const button = document.createElement("button");
 
-// Constants and URLS:
-const globalPollInterval = 1000; // ms
-const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
-const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
+let textToAppend = "";
 
-const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
+// Constants and URLS:
+const GLOBAL_POLL_INTERVAL = 1000; // ms
+const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
+const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
+
+const TWITCH_VALIDATION_ENDPOINT = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
-const queryURL = "https://api.twitch.tv/helix/users";
+const TWITCH_API_URL = "https://api.twitch.tv/helix";
 
 // Hashes and products of hashes:
-const hashCheck = document.location.hash && document.location.hash != "";
-const parsedHash = hashCheck
+let hashCheck = document.location.hash && document.location.hash != "";
+let parsedHash = hashCheck
   ? new URLSearchParams(document.location.hash.substr(1))
   : null;
 const AUTH_TOKEN = getAuthToken(parsedHash);
 const AUTH_SCOPE = getAuthScope(parsedHash);
 
-const twitchBaseURL = "https://api.twitch.tv/helix";
-const twitchAuthHeaders = {
+const TWITCH_AUTH_HEADERS = {
   Authorization: `Bearer ${AUTH_TOKEN}`,
   "Client-Id": CLIENT_ID,
 };
@@ -99,7 +99,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
       clearInterval(pollForEvents);
       console.log("Clearing interval...");
     }
-  }, globalPollInterval);
+  }, GLOBAL_POLL_INTERVAL);
 }
 
 /* *************
@@ -121,16 +121,18 @@ function getInputValue(inputId) {
 // "Get Twitch User Information"
 async function fetchUserInformation(username) {
   const userInformation = await fetch(
-    username ? `${queryURL}?login=${username}` : queryURL,
+    username
+      ? `${TWITCH_API_URL}/users?login=${username}`
+      : `${TWITCH_API_URL}/users`,
     {
-      headers: twitchAuthHeaders,
+      headers: TWITCH_AUTH_HEADERS,
     }
   )
     .then((res) => res.json())
     .catch((err) => console.log("Error: " + err));
 
   console.log(userInformation.data[0]);
-  return userInformation;
+  return userInformation.data[0];
 }
 
 // "Called when 'Get User Information' button is submitted"
@@ -154,13 +156,13 @@ function definePostData() {
 const twitchPOSTBody = JSON.stringify(definePostData());
 const twitchPOSTInit = {
   method: "POST",
-  headers: twitchAuthHeaders,
+  headers: TWITCH_AUTH_HEADERS,
   body: twitchPOSTBody,
 };
 
 // Put it all together...
 const twitchAuthPOSTRequest = new Request(
-  `${twitchBaseURL}/some/query`,
+  `${TWITCH_API_URL}/some/query`,
   twitchPOSTInit
 );
 
