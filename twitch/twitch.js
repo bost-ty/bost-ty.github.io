@@ -25,6 +25,7 @@ const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); 
 
 const twitchValidationEndpoint = "https://id.twitch.tv/oauth2/validate";
 const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
+const queryURL = "https://api.twitch.tv/helix/users";
 
 // Hashes and products of hashes:
 const hashCheck = document.location.hash && document.location.hash != "";
@@ -119,13 +120,12 @@ function getInputValue(inputId) {
 
 // "Get Twitch User Information"
 async function fetchUserInformation(username) {
-  let queryURL = "https://api.twitch.tv/helix/users";
-  const username = getInputValue("usernameInput");
-  if (username) queryURL = `${baseURL}?login=${username}`;
-
-  const userInformation = await fetch(queryURL, {
-    headers: twitchAuthHeaders,
-  })
+  const userInformation = await fetch(
+    username ? `${queryURL}?login=${username}` : queryURL,
+    {
+      headers: twitchAuthHeaders,
+    }
+  )
     .then((res) => res.json())
     .catch((err) => console.log("Error: " + err));
 
@@ -135,6 +135,9 @@ async function fetchUserInformation(username) {
 
 // "Called when 'Get User Information' button is submitted"
 async function onUsernameInputSubmit() {
+  const username = getInputValue("usernameInput");
+
+  if (username) queryURL = `${baseURL}?login=${username}`;
   return await fetchUserInformation(username);
 }
 
