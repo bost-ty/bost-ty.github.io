@@ -92,7 +92,7 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   div.append(p);
   MAIN.append(div);
 
-  let ARBITRARY_CONDITION = true;
+  document.addEventListener("blur", () => alert("Blur!"));
   let pollForEvents = setInterval(() => {
     console.log("Event polled...");
     if (ARBITRARY_CONDITION) {
