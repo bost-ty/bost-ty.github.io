@@ -35,9 +35,9 @@ main {
 
 button {
   padding: 1.5rem 3rem;
-  border-radius: .25rem;
+  border-radius: .175rem;
 }
 
 input[type=text] {
-  padding-inline: .5rem;
+  padding: .2rem .4rem;
 }
