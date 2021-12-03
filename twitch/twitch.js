@@ -131,7 +131,7 @@ async function getUserInformation(username) {
 
   return await fetch(queryURL, { headers: twitchAuthHeaders })
     .then((res) => {
-      console.log("res, ", res.json);
+      console.log("res, ", JSON.stringify(res.json));
       res.json;
     })
     .catch((err) => console.log("Error: " + err));
