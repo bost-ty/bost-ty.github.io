@@ -37,8 +37,8 @@ main {
 }
 
 button {
-  padding: 1.5rem 3rem;
-  border-radius: .175rem;
+  padding: 1rem 2rem;
+  border-radius: .2rem;
 }
 
 input[type=text] {
