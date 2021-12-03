@@ -127,11 +127,11 @@ function getInputValue(inputId) {
 // "Get Twitch User Information"
 async function getUserInformation(username) {
   // const queryURL = `${twitchBaseURL}/users?login=${username}`;
-  const queryURL = "https://api.twitch.tv/helix/users?login=alittletesting";
+  const queryURL = "https://api.twitch.tv/helix/users";
 
   return await fetch(queryURL, { headers: twitchAuthHeaders })
     .then((res) => {
-      console.log("res, ", res);
+      console.log("res, ", res.json);
       res.json;
     })
     .catch((err) => console.log("Error: " + err));
