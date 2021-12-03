@@ -129,12 +129,16 @@ async function fetchUserInformation(username) {
   // const queryURL = `${twitchBaseURL}/users?login=${username}`;
   const queryURL = "https://api.twitch.tv/helix/users";
 
-  return await fetch(queryURL, { headers: twitchAuthHeaders })
+  let userInformation = {};
+
+  userInformation = await fetch(queryURL, { headers: twitchAuthHeaders })
     .then((res) => {
-      console.log("res, ", JSON.stringify(res.json));
-      return JSON.stringify(res.json);
+      console.log("res, ", res);
+      return res;
     })
     .catch((err) => console.log("Error: " + err));
+
+  return userInformation;
 }
 
 // "Submit usernameInput request"
