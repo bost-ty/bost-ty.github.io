@@ -141,9 +141,7 @@ async function fetchUserInformation(username) {
 async function onUsernameInputSubmit() {
   const username = getInputValue("usernameInput");
   if (username) {
-    let userInformation = await fetchUserInformation(username);
-    updateTextToAppend(userInformation);
-    return userInformation;
+    return await fetchUserInformation(username);
   }
 }
 
