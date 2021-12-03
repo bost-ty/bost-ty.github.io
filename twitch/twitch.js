@@ -131,7 +131,9 @@ async function fetchUserInformation(username) {
 
   let userInformation = {};
 
-  userInformation = await fetch(queryURL, { headers: twitchAuthHeaders })
+  userInformation = await fetch(queryURL, {
+    headers: { ...twitchAuthHeaders, Accept: "application/json" },
+  })
     .then((res) => {
       console.log("res, ", res);
       return res;
