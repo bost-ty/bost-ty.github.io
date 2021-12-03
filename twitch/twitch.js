@@ -74,16 +74,16 @@ function getAuthScope(parsedHash) {
  * Text population *
  ***************** */
 
+// Display token if found
 if (AUTH_TOKEN) {
-  document.getElementById(
-    "authTokenText"
-  ).innerText = `Auth token: ${AUTH_TOKEN}`;
+  document.getElementById("authTokenText").innerText = `Token: ${AUTH_TOKEN}`;
 }
 
+// Display scope(s) if found
 if (AUTH_SCOPE) {
   document.getElementById(
     "authScopeText"
-  ).innerText = `Auth scope: ${AUTH_SCOPE}`;
+  ).innerText = `Scope(s): ${AUTH_SCOPE}`;
 }
 
 // "When token and scopes are retrieved..."
