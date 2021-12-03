@@ -117,18 +117,13 @@ function getInputValue(inputId) {
   return inputValue;
 }
 
-// let usernameValue = "";
-// // "Get text input change, save it to variable"
-// function onInputChange(inputId, usernameValue) {
-//   usernameValue = getInputValue(userna);
-//   return usernameValue;
-// }
-
 // "Get Twitch User Information"
 async function fetchUserInformation(username) {
-  const queryURL = "https://api.twitch.tv/helix/users";
+  let queryURL = "https://api.twitch.tv/helix/users";
+  const username = getInputValue("usernameInput");
+  if (username) queryURL = `${baseURL}?login=${username}`;
 
-  userInformation = await fetch(queryURL, {
+  const userInformation = await fetch(queryURL, {
     headers: twitchAuthHeaders,
   })
     .then((res) => res.json())
@@ -138,12 +133,9 @@ async function fetchUserInformation(username) {
   return userInformation;
 }
 
-// "Submit usernameInput request"
+// "Called when 'Get User Information' button is submitted"
 async function onUsernameInputSubmit() {
-  const username = getInputValue("usernameInput");
-  if (username) {
-    return await fetchUserInformation(username);
-  }
+  return await fetchUserInformation(username);
 }
 
 /* *******************
