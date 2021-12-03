@@ -29,11 +29,7 @@ main {
 }
 
 .center > div {
-  margin: .5rem;
-}
-
-.vertical-space {
-  margin: 2rem 0;
+  margin: 2rem;
 }
 
 button {
