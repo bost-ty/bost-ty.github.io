@@ -132,7 +132,7 @@ async function fetchUserInformation(username) {
   let userInformation = {};
 
   userInformation = await fetch(queryURL, {
-    headers: { ...twitchAuthHeaders, Accept: "application/json" },
+    headers: twitchAuthHeaders,
   })
     .then((res) => {
       console.table("res, ", res);
