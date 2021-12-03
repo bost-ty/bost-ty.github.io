@@ -83,8 +83,7 @@ if (AUTH_TOKEN) {
 if (AUTH_SCOPE) {
   document.getElementById(
     "authScopeText"
-  ).innerText = `Scope(s): ${AUTH_SCOPE}`;
-  console.log(AUTH_SCOPE, typeof AUTH_SCOPE);
+  ).innerText = `Scope(s): ${AUTH_SCOPE.split(" ").join(", ")}`;
 }
 
 // "When token and scopes are retrieved..."
