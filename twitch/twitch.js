@@ -135,8 +135,6 @@ async function getUserInformation(username) {
     })
     .catch((err) => console.log("Error: " + err));
 
-  console.log("Data, ", data);
-  return data;
 }
 
 // "Submit usernameInput request"
