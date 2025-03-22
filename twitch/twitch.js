@@ -19,14 +19,13 @@ const button = document.createElement("button");
 let textToAppend = "";
 
 // Constants and URLS:
-const GLOBAL_POLL_INTERVAL = 1000; // ms
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
-const REDIRECT_URI = "https://bost-ty.github.io/twitch";
-
-const TWITCH_VALIDATION_ENDPOINT = "https://id.twitch.tv/oauth2/validate";
-const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
-const TWITCH_API_URL = "https://api.twitch.tv/helix";
+const REDIRECT_URI = "https://bost-ty.github.io/twitch/";
+const h = `https://`
+const TWITCH_VALIDATION_ENDPOINT = `${h}id.twitch.tv/oauth2/validate`;
+const TOKEN_URL = `${h}id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI} &response_type=token&scope=${REQUEST_SCOPE}`;
+const TWITCH_API_URL = `${h}api.twitch.tv/helix`;
 
 // Hashes and products of hashes:
 let hashCheck = document.location.hash && document.location.hash != "";
@@ -45,7 +44,11 @@ const TWITCH_AUTH_HEADERS = {
  * Utilities, getters *
  ******************** */
 
-// "Update textToAppend for display on page"
+/**
+ * Update textToAppend for display on page
+ * @param {string} newText
+ * @returns {string} textToAppend
+ */
 function updateTextToAppend(newText) {
   if (textToAppend === newText) return textToAppend;
   textToAppend = newText;
@@ -91,20 +94,6 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
   p.append(textToAppend);
   div.append(p);
   MAIN.append(div);
-
-  // let ARBITRARY_CONDITION = false;
-  // window.addEventListener("blur", function handleBlur() {
-  //   ARBITRARY_CONDITION = true;
-  // });
-
-  // let pollForEvents = setInterval(() => {
-  //   console.log("Event polled...");
-  //   if (ARBITRARY_CONDITION) {
-  //     clearInterval(pollForEvents);
-  //     console.log("Clearing interval...");
-  //     window.removeEventListener("blur", handleBlur);
-  //   }
-  // }, GLOBAL_POLL_INTERVAL);
 }
 
 /* *************
@@ -171,59 +160,3 @@ const twitchAuthPOSTRequest = new Request(
   twitchPOSTInit
 );
 
-/* --- NOTES, REFERENCE --- */
-/* These are set for the GitHub Pages Example
-        // Substitute as needed
-        var client_id = 'hozgh446gdilj5knsrsxxz8tahr3koz';
-        var redirect = 'https://barrycarlyon.github.io/twitch_misc/authentication/implicit_auth/';
-
-        document.getElementById('authorize_public').setAttribute('href', 'https://id.twitch.tv/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token');
-        document.getElementById('authorize_email').setAttribute('href', 'https://id.twitch.tv/oauth2/authorize?client_id=' + client_id + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token&scope=user:read:email');
-        document.getElementById('access_token').textContent = '';
-
-        if (document.location.hash && document.location.hash != '') {
-            var parsedHash = new URLSearchParams(window.location.hash.substr(1));
-            if (parsedHash.get('access_token')) {
-                var access_token = parsedHash.get('access_token');
-                document.getElementById('access_token').textContent = 'Your Access Key from the #url: ' + access_token;
-
-                document.getElementById('user_data').textContent = 'Loading';
-
-                // call API
-                fetch(
-                    'https://api.twitch.tv/helix/users',
-                    {
-                        "headers": {
-                            "Client-ID": client_id,
-                            "Authorization": "Bearer " + access_token
-                        }
-                    }
-                )
-                .then(resp => resp.json())
-                .then(resp => {
-                    document.getElementById('user_data').innerHTML = '<p>Your Twitch Profile from Helix:</p>';
-                    var table = document.createElement('table');
-                    document.getElementById('user_data').append(table);
-                    for (var key in resp.data[0]) {
-                        var tr = document.createElement('tr');
-                        table.append(tr);
-                        var td = document.createElement('td');
-                        td.textContent = key;
-                        tr.append(td);
-                        var td = document.createElement('td');
-                        td.textContent = resp.data[0][key];
-                        tr.append(td);
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                    document.getElementById('user_data').textContent = 'Something went wrong';
-                });
-            }
-        } else if (document.location.search && document.location.search != '') {
-            var parsedParams = new URLSearchParams(window.location.search);
-            if (parsedParams.get('error_description')) {
-                document.getElementById('access_token').textContent = parsedParams.get('error') + ' - ' + parsedParams.get('error_description');
-            }
-        }
-*/
