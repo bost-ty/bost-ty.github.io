@@ -1,18 +1,26 @@
+:root {
+  /* A la Flexoki */
+  --bg: rgb(16, 15, 15);
+  --tx: rgb(206, 205, 195);
+  --bl-l: rgb(67, 133, 190)
+  --bl-d: rgb(32, 94, 166);
+}
+
 body {
   font-family: sans-serif;
-  color: #f0f0f0;
-  background-color: #272727;
+  color: var(--tx);
+  background-color: var(--bg);
   overflow-x: hidden;
 }
 
 h1 {
-  font-size: 3.25rem;
+  font-size: 3.15rem;
   max-width: 60ch;
   line-height: 1.1;
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.4;
   max-width: 60ch;
 }
@@ -40,4 +48,11 @@ button {
 
 input[type=text] {
   padding: .2rem .4rem;
+}
+
+a {
+  color: var(--bl-l);
+  &:visited {
+    color: var(--bl-d);
+  }
 }
