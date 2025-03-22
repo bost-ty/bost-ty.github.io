@@ -54,6 +54,10 @@ button {
     transform: translate(0px, 0px);
     cursor: pointer;
   }
+  &:active {
+    box-shadow: 0 0 0 transparent;
+    transform: translate(1px, 1px);
+  }
 }
 
 input[type=text] {
