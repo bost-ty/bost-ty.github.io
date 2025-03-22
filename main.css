@@ -45,12 +45,14 @@ button {
   padding: 0.4rem 0.8rem;
   background-color: var(--tx);
   color: var(--bg);
+  margin: 0.4rem;
 }
 
 input[type=text] {
   padding: 0.2rem 0.4rem;
   background-color: var(--tx);
   color: var(--bg);
+  margin: 0.2rem;
 }
 
 a {
