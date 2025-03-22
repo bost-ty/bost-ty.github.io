@@ -10,11 +10,11 @@
   </head>
   <body>
     <main id="main" class="center">
-      <div>
+      <div class="header center">
         <h1>Twitch Authentication</h1>
       </div>
       <div>
-        <button id="authBtn" onclick="onAuthSubmit()">
+        <button type="button" id="authBtn" onclick="onAuthSubmit()">
           Authorize on Twitch
         </button>
       </div>
@@ -23,7 +23,7 @@
         <p id="authScopeText"></p>
       </div>
       <div>
-        <p>Send a request:</p>
+        <label for="usernameInput">Send a request:</label>
         <input
           type="text"
           name="username"
@@ -31,7 +31,7 @@
           placeholder="Username"
         />
         <div>
-          <button onclick="onUsernameInputSubmit()">
+          <button type="button" onclick="onUsernameInputSubmit()">
             Get User Information
           </button>
         </div>
