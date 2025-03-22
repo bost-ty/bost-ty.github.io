@@ -21,7 +21,7 @@ let textToAppend = "";
 // Constants and URLS:
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
-const REDIRECT_URI = "https://bost-ty.github.io/twitch/";
+const REDIRECT_URI = "https://bost-ty.github.io/twitch";
 const h = `https://`
 const TWITCH_VALIDATION_ENDPOINT = `${h}id.twitch.tv/oauth2/validate`;
 const TOKEN_URL = `${h}id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI} &response_type=token&scope=${REQUEST_SCOPE}`;
