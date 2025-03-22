@@ -14,13 +14,13 @@ body {
 }
 
 h1 {
-  font-size: 3.15rem;
+  font-size: 3.2rem;
   max-width: 60ch;
   line-height: 1.1;
 }
 
 p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.4;
   max-width: 60ch;
 }
@@ -42,12 +42,15 @@ main {
 }
 
 button {
-  padding: 1rem 2rem;
-  border-radius: .2rem;
+  padding: 0.4rem 0.8rem;
+  background-color: var(--tx);
+  color: var(--bg);
 }
 
 input[type=text] {
-  padding: .2rem .4rem;
+  padding: 0.2rem 0.4rem;
+  background-color: var(--tx);
+  color: var(--bg);
 }
 
 a {
