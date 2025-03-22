@@ -23,20 +23,18 @@ const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
 const REDIRECT_URI = `https://bost-ty.github.io/twitch`;
 const TWITCH_VALIDATION_ENDPOINT = `https://id.twitch.tv/oauth2/validate`;
-const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI} &response_type=token&scope=${REQUEST_SCOPE}`;
+const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=${REQUEST_SCOPE}`;
 const TWITCH_API_URL = `https://api.twitch.tv/helix`;
 
 // Hashes and products of hashes:
 let hashCheck = document.location.hash && document.location.hash != "";
-let parsedHash = hashCheck
-  ? new URLSearchParams(document.location.hash.substr(1))
-  : null;
+let parsedHash = hashCheck ? new URLSearchParams(document.location.hash.substr(1)) : null;
 const AUTH_TOKEN = getAuthToken(parsedHash);
 const AUTH_SCOPE = getAuthScope(parsedHash);
 
 const TWITCH_AUTH_HEADERS = {
-  Authorization: `Bearer ${AUTH_TOKEN}`,
-  "Client-Id": CLIENT_ID,
+	Authorization: `Bearer ${AUTH_TOKEN}`,
+	"Client-Id": CLIENT_ID,
 };
 
 /* ********************
@@ -49,27 +47,27 @@ const TWITCH_AUTH_HEADERS = {
  * @returns {string} textToAppend
  */
 function updateTextToAppend(newText) {
-  if (textToAppend === newText) return textToAppend;
-  textToAppend = newText;
-  return textToAppend;
+	if (textToAppend === newText) return textToAppend;
+	textToAppend = newText;
+	return textToAppend;
 }
 
 // "Return auth token from parsed URI hash"
 function getAuthToken(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("access_token")) {
-      return parsedHash.get("access_token");
-    } else return null;
-  }
+	if (parsedHash) {
+		if (parsedHash.get("access_token")) {
+			return parsedHash.get("access_token");
+		} else return null;
+	}
 }
 
 // "Return auth scope(s) from parsed URI hash"
 function getAuthScope(parsedHash) {
-  if (parsedHash) {
-    if (parsedHash.get("scope")) {
-      return decodeURIComponent(parsedHash.get("scope"));
-    } else return null;
-  }
+	if (parsedHash) {
+		if (parsedHash.get("scope")) {
+			return decodeURIComponent(parsedHash.get("scope"));
+		} else return null;
+	}
 }
 
 /* *****************
@@ -78,21 +76,21 @@ function getAuthScope(parsedHash) {
 
 // Display token if found
 if (AUTH_TOKEN) {
-  document.getElementById("authTokenText").innerText = `Token: ${AUTH_TOKEN}`;
+	document.getElementById("authTokenText").innerText = `Token: ${AUTH_TOKEN}`;
 }
 
 // Display scope(s) if found
 if (AUTH_SCOPE) {
-  document.getElementById(
-    "authScopeText"
-  ).innerText = `Scope(s): ${AUTH_SCOPE.split(" ").join(", ")}`;
+	document.getElementById("authScopeText").innerText = `Scope(s): ${AUTH_SCOPE.split(
+		" "
+	).join(", ")}`;
 }
 
 // "When token and scopes are retrieved..."
 if (AUTH_TOKEN && AUTH_SCOPE) {
-  p.append(textToAppend);
-  div.append(p);
-  MAIN.append(div);
+	p.append(textToAppend);
+	div.append(p);
+	MAIN.append(div);
 }
 
 /* *************
@@ -101,35 +99,37 @@ if (AUTH_TOKEN && AUTH_SCOPE) {
 
 // "Enter Twitch OAuth Implicit flow"
 async function onAuthSubmit() {
-  window.location.href = TOKEN_URL;
-  return;
+	window.location.href = TOKEN_URL;
+	return;
 }
 
 // "Get value of a certain element (by id)"
 function getInputValue(inputId) {
-  const inputValue = document.getElementById(inputId).value;
-  return inputValue;
+	const inputValue = document.getElementById(inputId).value;
+	return inputValue;
 }
 
 // "Get Twitch User Information"
 async function fetchUserInformation(username) {
-  const userInformation = await fetch(
-    username
-      ? `${TWITCH_API_URL}/users?login=${username}`
-      : `${TWITCH_API_URL}/users`,
-    {
-      headers: TWITCH_AUTH_HEADERS,
-    }
-  ).then((res) => res.json()).catch((err) => console.log("Error: " + err));
+	const userInformation = await fetch(
+		username
+			? `${TWITCH_API_URL}/users?login=${username}`
+			: `${TWITCH_API_URL}/users`,
+		{
+			headers: TWITCH_AUTH_HEADERS,
+		}
+	)
+		.then((res) => res.json())
+		.catch((err) => console.log("Error: " + err));
 
-  console.log(userInformation.data[0]);
-  return userInformation;
+	console.log(userInformation.data[0]);
+	return userInformation;
 }
 
 // "Called when 'Get User Information' button is submitted"
 async function onUsernameInputSubmit() {
-  const username = getInputValue("usernameInput");
-  return await fetchUserInformation(username);
+	const username = getInputValue("usernameInput");
+	return await fetchUserInformation(username);
 }
 
 /* *******************
@@ -137,23 +137,19 @@ async function onUsernameInputSubmit() {
  ******************* */
 
 function definePostData() {
-  let dataPOST = {};
-  if (AUTH_TOKEN) {
-    let dataPOST = { data1: "abcd1234" }; // TODO: Set data to be posted (programmatically)
-  }
-  return dataPOST;
+	let dataPOST = {};
+	if (AUTH_TOKEN) {
+		let dataPOST = { data1: "abcd1234" }; // TODO: Set data to be posted (programmatically)
+	}
+	return dataPOST;
 }
 
 const TWITCH_POST_BODY = JSON.stringify(definePostData());
 const twitchPOSTInit = {
-  method: "POST",
-  headers: TWITCH_AUTH_HEADERS,
-  body: TWITCH_POST_BODY,
+	method: "POST",
+	headers: TWITCH_AUTH_HEADERS,
+	body: TWITCH_POST_BODY,
 };
 
 // Put it all together...
-const twitchAuthPOSTRequest = new Request(
-  `${TWITCH_API_URL}/some/query`,
-  twitchPOSTInit
-);
-
+const twitchAuthPOSTRequest = new Request(`${TWITCH_API_URL}/some/query`, twitchPOSTInit);
