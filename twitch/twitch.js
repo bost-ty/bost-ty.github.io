@@ -21,11 +21,10 @@ let textToAppend = "";
 // Constants and URLS:
 const CLIENT_ID = "4d0w57jv6t6hkyux5gvgqtos3bx9kx";
 const REQUEST_SCOPE = encodeURIComponent("channel:read:redemptions bits:read"); // https://dev.twitch.tv/docs/authentication#scopes
-const REDIRECT_URI = "https://bost-ty.github.io/twitch/";
-const h = `https://`
-const TWITCH_VALIDATION_ENDPOINT = `${h}id.twitch.tv/oauth2/validate`;
-const TOKEN_URL = `${h}id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI} &response_type=token&scope=${REQUEST_SCOPE}`;
-const TWITCH_API_URL = `${h}api.twitch.tv/helix`;
+const REDIRECT_URI = `https://bost-ty.github.io/twitch`;
+const TWITCH_VALIDATION_ENDPOINT = `https://id.twitch.tv/oauth2/validate`;
+const TOKEN_URL = `https://id.twitch.tv/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI} &response_type=token&scope=${REQUEST_SCOPE}`;
+const TWITCH_API_URL = `https://api.twitch.tv/helix`;
 
 // Hashes and products of hashes:
 let hashCheck = document.location.hash && document.location.hash != "";
@@ -121,9 +120,7 @@ async function fetchUserInformation(username) {
     {
       headers: TWITCH_AUTH_HEADERS,
     }
-  )
-    .then((res) => res.json())
-    .catch((err) => console.log("Error: " + err));
+  ).then((res) => res.json()).catch((err) => console.log("Error: " + err));
 
   console.log(userInformation.data[0]);
   return userInformation;
@@ -147,11 +144,11 @@ function definePostData() {
   return dataPOST;
 }
 
-const twitchPOSTBody = JSON.stringify(definePostData());
+const TWITCH_POST_BODY = JSON.stringify(definePostData());
 const twitchPOSTInit = {
   method: "POST",
   headers: TWITCH_AUTH_HEADERS,
-  body: twitchPOSTBody,
+  body: TWITCH_POST_BODY,
 };
 
 // Put it all together...
