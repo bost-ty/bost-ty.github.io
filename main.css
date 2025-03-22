@@ -43,9 +43,16 @@ main {
 
 button {
   padding: 0.4rem 0.8rem;
+  border: none;
   background-color: var(--tx);
   color: var(--bg);
   margin: 0.4rem;
+  transition: box-shadow 0.1s linear, transform 0.1s linear;
+  &:hover {
+    box-shadow: 3px 3px 0px var(--bl-l);
+    transform: translate(-6px, 6px);
+    cursor: pointer;
+  }
 }
 
 input[type=text] {
