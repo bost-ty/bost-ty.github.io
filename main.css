@@ -51,7 +51,7 @@ button {
   transform: translate(3px, 3px);
   &:hover {
     box-shadow: 3px 3px 0px var(--bl-l);
-    transform: translate(-3px, -3px);
+    transform: translate(0px, 0px);
     cursor: pointer;
   }
 }
