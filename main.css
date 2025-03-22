@@ -55,8 +55,8 @@ button {
     cursor: pointer;
   }
   &:active {
-    box-shadow: 0 0 0 transparent;
-    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px var(--bl-d);
+    transform: translate(3px, 6px);
   }
 }
 
