@@ -35,6 +35,7 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: center;
 }
 
 .center > div {
@@ -47,7 +48,9 @@ button {
   background-color: var(--tx);
   color: var(--bg);
   margin: 0.4rem;
-  transition: box-shadow 0.1s linear, transform 0.1s linear;
+  transition:
+    box-shadow 0.1s linear,
+    transform 0.1s linear;
   transform: translate(3px, 3px);
   &:hover {
     box-shadow: 3px 3px 0px var(--bl-l);
@@ -60,7 +63,7 @@ button {
   }
 }
 
-input[type=text] {
+input[type="text"] {
   padding: 0.2rem 0.4rem;
   background-color: var(--tx);
   color: var(--bg);
